@@ -1,0 +1,16 @@
+[project]
+name = "i990"
+version = "0.1.0"
+description = "Database of IRS 990 non-profit filings"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+i990 = "i990.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,233 @@
+{
+  "columns": [
+    "tax_year",
+    "object_id",
+    "ein",
+    "org_name",
+    "state",
+    "subsection",
+    "ntee_cd",
+    "bmf_region",
+    "return_type",
+    "filing_sub_year",
+    "xml_batch_id",
+    "total_revenue",
+    "total_expenses",
+    "total_assets_eoy",
+    "total_liabilities_eoy",
+    "net_assets_eoy",
+    "risk_total_score",
+    "risk_tier"
+  ],
+  "format": "csv.gz",
+  "generated_at": "2026-04-13T18:35:42.140696+00:00",
+  "profile": "lite",
+  "rows_per_file": 200000,
+  "years": {
+    "2016": {
+      "bytes": 113321,
+      "files": 1,
+      "parts": [
+        {
+          "bytes": 113321,
+          "path": "/home/v/work/i990/data/exports/filings_2016_part01.csv.gz",
+          "rows": 2495
+        }
+      ],
+      "rows": 2495
+    },
+    "2017": {
+      "bytes": 5131942,
+      "files": 1,
+      "parts": [
+        {
+          "bytes": 5131942,
+          "path": "/home/v/work/i990/data/exports/filings_2017_part01.csv.gz",
+          "rows": 113206
+        }
+      ],
+      "rows": 113206
+    },
+    "2018": {
+      "bytes": 21155901,
+      "files": 3,
+      "parts": [
+        {
+          "bytes": 8799383,
+          "path": "/home/v/work/i990/data/exports/filings_2018_part01.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 8737338,
+          "path": "/home/v/work/i990/data/exports/filings_2018_part02.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 3619180,
+          "path": "/home/v/work/i990/data/exports/filings_2018_part03.csv.gz",
+          "rows": 84439
+        }
+      ],
+      "rows": 484439
+    },
+    "2019": {
+      "bytes": 22777978,
+      "files": 3,
+      "parts": [
+        {
+          "bytes": 8781334,
+          "path": "/home/v/work/i990/data/exports/filings_2019_part01.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 8732040,
+          "path": "/home/v/work/i990/data/exports/filings_2019_part02.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 5264604,
+          "path": "/home/v/work/i990/data/exports/filings_2019_part03.csv.gz",
+          "rows": 123163
+        }
+      ],
+      "rows": 523163
+    },
+    "2020": {
+      "bytes": 26308593,
+      "files": 4,
+      "parts": [
+        {
+          "bytes": 8565871,
+          "path": "/home/v/work/i990/data/exports/filings_2020_part01.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 8481183,
+          "path": "/home/v/work/i990/data/exports/filings_2020_part02.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 8388121,
+          "path": "/home/v/work/i990/data/exports/filings_2020_part03.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 873418,
+          "path": "/home/v/work/i990/data/exports/filings_2020_part04.csv.gz",
+          "rows": 20682
+        }
+      ],
+      "rows": 620682
+    },
+    "2021": {
+      "bytes": 19479323,
+      "files": 3,
+      "parts": [
+        {
+          "bytes": 8524526,
+          "path": "/home/v/work/i990/data/exports/filings_2021_part01.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 8496526,
+          "path": "/home/v/work/i990/data/exports/filings_2021_part02.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 2458271,
+          "path": "/home/v/work/i990/data/exports/filings_2021_part03.csv.gz",
+          "rows": 59330
+        }
+      ],
+      "rows": 459330
+    },
+    "2022": {
+      "bytes": 29011890,
+      "files": 4,
+      "parts": [
+        {
+          "bytes": 8656657,
+          "path": "/home/v/work/i990/data/exports/filings_2022_part01.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 8577852,
+          "path": "/home/v/work/i990/data/exports/filings_2022_part02.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 8498751,
+          "path": "/home/v/work/i990/data/exports/filings_2022_part03.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 3278630,
+          "path": "/home/v/work/i990/data/exports/filings_2022_part04.csv.gz",
+          "rows": 78887
+        }
+      ],
+      "rows": 678887
+    },
+    "2023": {
+      "bytes": 30047266,
+      "files": 4,
+      "parts": [
+        {
+          "bytes": 8894510,
+          "path": "/home/v/work/i990/data/exports/filings_2023_part01.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 8821714,
+          "path": "/home/v/work/i990/data/exports/filings_2023_part02.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 8739421,
+          "path": "/home/v/work/i990/data/exports/filings_2023_part03.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 3591621,
+          "path": "/home/v/work/i990/data/exports/filings_2023_part04.csv.gz",
+          "rows": 84669
+        }
+      ],
+      "rows": 684669
+    },
+    "2024": {
+      "bytes": 24013218,
+      "files": 3,
+      "parts": [
+        {
+          "bytes": 8834074,
+          "path": "/home/v/work/i990/data/exports/filings_2024_part01.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 8817479,
+          "path": "/home/v/work/i990/data/exports/filings_2024_part02.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 6361665,
+          "path": "/home/v/work/i990/data/exports/filings_2024_part03.csv.gz",
+          "rows": 148475
+        }
+      ],
+      "rows": 548475
+    },
+    "2025": {
+      "bytes": 510865,
+      "files": 1,
+      "parts": [
+        {
+          "bytes": 510865,
+          "path": "/home/v/work/i990/data/exports/filings_2025_part01.csv.gz",
+          "rows": 12245
+        }
+      ],
+      "rows": 12245
+    }
+  }
+}
