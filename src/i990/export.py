@@ -73,9 +73,9 @@ def _export_query(limit: int | None = None) -> str:
             d.net_assets_eoy                             AS net_assets_eoy,
             d.website                                    AS website,
             d.mission                                    AS mission,
-            rs.total_score                               AS risk_total_score,
-            rs.tier                                      AS risk_tier,
-            rs.signals_csv                               AS risk_signals
+            COALESCE(rs.total_score, 0)                  AS risk_total_score,
+            COALESCE(rs.tier, 0)                         AS risk_tier,
+            COALESCE(rs.signals_csv, '')                AS risk_signals
           FROM filing_details d
           LEFT JOIN filings f USING (object_id)
           LEFT JOIN organizations o USING (ein)

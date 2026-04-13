@@ -69,6 +69,35 @@ class ExportYearsTest(unittest.TestCase):
             self.assertEqual(manifest["profile"], "full")
             self.assertIn("2024", manifest["years"])
 
+    def test_export_coalesces_missing_risk_scores_to_zero(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            db_path = root / "test.sqlite"
+            outdir = root / "exports"
+
+            conn = connect(db_path)
+            conn.execute(
+                """
+                INSERT INTO filing_details(
+                    object_id, ein, return_type, tax_year, org_name, state,
+                    total_revenue, total_expenses, total_assets_eoy
+                ) VALUES ('oid2', '987654321', '990', 2024, 'No Risk Org', 'WA', 100, 80, 250)
+                """
+            )
+            conn.commit()
+            conn.close()
+
+            export_years(years=[2024], outdir=outdir, db_path=db_path)
+
+            export_path = outdir / "filings_2024_part01.csv.gz"
+            with gzip.open(export_path, "rt", encoding="utf-8") as f:
+                header = f.readline().strip().split(",")
+                row = f.readline().strip().split(",")
+
+            values = dict(zip(header, row))
+            self.assertEqual(values["risk_total_score"], "0")
+            self.assertEqual(values["risk_tier"], "0")
+
 
 if __name__ == "__main__":
     unittest.main()

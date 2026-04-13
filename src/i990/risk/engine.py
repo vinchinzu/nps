@@ -209,27 +209,45 @@ def _rollup(conn: sqlite3.Connection) -> int:
     """Aggregate risk_hits into risk_scores. Returns number of scored EINs."""
     log.info("rolling up risk_scores...")
     conn.execute("DELETE FROM risk_scores")
-    # SQLite supports group_concat. We compute the tier after insertion
-    # so it stays in SQL.
+    # Score every EIN that has parsed filing data, not just EINs with hits.
+    # That keeps downstream exports stable: "no risk flags" becomes a real
+    # zero score instead of NULL.
     conn.execute(
         """
         INSERT INTO risk_scores(
             ein, total_score, max_weight_hit, n_hits, tier,
             latest_tax_year, signals_csv, scored_at
         )
+        WITH filing_eins AS (
+            SELECT ein, MAX(tax_year) AS latest_tax_year
+              FROM filing_details
+             WHERE ein IS NOT NULL
+               AND TRIM(ein) != ''
+             GROUP BY ein
+        ),
+        hit_rollup AS (
+            SELECT
+                h.ein                                             AS ein,
+                SUM(h.score_contrib)                              AS total_score,
+                COALESCE(MAX(CASE WHEN h.severity >= 1.0 THEN s.weight END), 0) AS max_weight_hit,
+                COUNT(*)                                          AS n_hits,
+                MAX(h.tax_year)                                   AS latest_hit_tax_year,
+                GROUP_CONCAT(DISTINCT h.signal_id)                AS signals_csv
+              FROM risk_hits h
+              JOIN risk_signals s USING (signal_id)
+             GROUP BY h.ein
+        )
         SELECT
-            h.ein,
-            SUM(h.score_contrib)                                   AS total_score,
-            COALESCE(MAX(CASE WHEN h.severity >= 1.0 THEN s.weight END), 0) AS max_weight_hit,
-            COUNT(*)                                               AS n_hits,
+            fe.ein,
+            COALESCE(hr.total_score, 0)                            AS total_score,
+            COALESCE(hr.max_weight_hit, 0)                         AS max_weight_hit,
+            COALESCE(hr.n_hits, 0)                                 AS n_hits,
             0                                                      AS tier,
-            MAX(h.tax_year)                                        AS latest_tax_year,
-            (SELECT GROUP_CONCAT(DISTINCT signal_id)
-               FROM risk_hits h2 WHERE h2.ein = h.ein)             AS signals_csv,
+            COALESCE(hr.latest_hit_tax_year, fe.latest_tax_year)   AS latest_tax_year,
+            COALESCE(hr.signals_csv, '')                           AS signals_csv,
             datetime('now')
-          FROM risk_hits h
-          JOIN risk_signals s USING (signal_id)
-         GROUP BY h.ein
+          FROM filing_eins fe
+          LEFT JOIN hit_rollup hr USING (ein)
         """
     )
     # Assign tiers.
