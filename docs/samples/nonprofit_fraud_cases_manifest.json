@@ -1,0 +1,8 @@
+{
+  "artifact_count": 24,
+  "artifact_root": "data/external/doj_nonprofit_fraud_cases",
+  "case_count": 22,
+  "csv_path": "docs/samples/nonprofit_fraud_cases_sample.csv",
+  "generated_at": "2026-04-22T02:08:49.563086+00:00",
+  "json_path": "docs/samples/nonprofit_fraud_cases_sample.json"
+}

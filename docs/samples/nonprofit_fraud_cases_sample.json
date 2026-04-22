@@ -1,0 +1,2539 @@
+[
+  {
+    "amount_text": "more than $3 million",
+    "case_id": "splc-2026",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/splc-2026/source-1.html",
+          "url": "https://www.justice.gov/opa/pr/federal-grand-jury-charges-southern-poverty-law-center-wire-fraud-false-statements-and"
+        },
+        {
+          "content_type": "application/pdf",
+          "kind": "pdf",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/splc-2026/doc-2.pdf",
+          "url": "https://www.justice.gov/jmd/media/1425556/dl?inline"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/splc-2026/source-1.html",
+          "text_excerpt": "Office of Public Affairs | Federal Grand Jury Charges Southern Poverty Law Center for Wire Fraud, False Statements, and Conspiracy to Commit Money Laundering | United States Department of Justice Skip to main content An official website of the United States government Here's how you know Here's how you know Official websites use .gov A .gov website belongs to an official government organization in",
+          "title": "Federal Grand Jury Charges Southern Poverty Law Center for Wire Fraud, False Statements, and Conspiracy to Commit Money Laundering",
+          "url": "https://www.justice.gov/opa/pr/federal-grand-jury-charges-southern-poverty-law-center-wire-fraud-false-statements-and"
+        }
+      ]
+    },
+    "entity_aliases": [
+      "SOUTHERN POVERTY LAW CENTER INC"
+    ],
+    "event_date": "2026-04-21",
+    "i990": {
+      "bmf_region": "eo3",
+      "city": "MONTGOMERY",
+      "ein": "630598743",
+      "latest_assets": 822198315,
+      "latest_revenue": 129063290,
+      "latest_tax_year": 2023,
+      "latest_website": "SPLCENTER.ORG; LEARNINGFORJUSTICE.ORG",
+      "match_score": 100,
+      "matched": true,
+      "ntee_cd": "I83Z",
+      "org_name": "SOUTHERN POVERTY LAW CENTER INC",
+      "risk_tier": 0,
+      "risk_total_score": 0,
+      "ruling": "197108",
+      "state": "AL",
+      "subsection": "03",
+      "zip": "36104-4344"
+    },
+    "location": "Montgomery, AL",
+    "primary_entity_name": "SOUTHERN POVERTY LAW CENTER",
+    "sam": {
+      "address": {
+        "addressLine1": "400 WASHINGTON AVE",
+        "addressLine2": null,
+        "city": "MONTGOMERY",
+        "countryCode": "USA",
+        "stateOrProvinceCode": "AL",
+        "zipCode": "36104",
+        "zipCodePlus4": "4344"
+      },
+      "cage": "3VAG6",
+      "entity_type_desc": "Business or Organization",
+      "expiration_date": "2023-05-25",
+      "last_update_date": "2023-05-25",
+      "legal_business_name": "SOUTHERN POVERTY LAW CENTER",
+      "matched": true,
+      "no_public_display_flag": "Y",
+      "profit_structure_desc": "Non-Profit Organization",
+      "purpose_desc": "Federal Assistance Awards",
+      "registration_date": "2004-05-07",
+      "registration_status": "Inactive",
+      "uei": "H2GRQHMF6A63"
+    },
+    "scheme_tags": [
+      "donor-fund-misuse",
+      "fictitious-entities",
+      "bank-false-statements",
+      "concealment-money-laundering",
+      "counterparty-risk"
+    ],
+    "summary": "DOJ alleges SPLC diverted donor funds to extremist-linked individuals through covert accounts and fictitious entities.",
+    "usaspending": {
+      "address": {
+        "address_line1": "400 WASHINGTON AVE",
+        "address_line2": null,
+        "address_line3": null,
+        "city_name": "MONTGOMERY",
+        "congressional_code": "02",
+        "country_code": "USA",
+        "country_name": "UNITED STATES",
+        "county_name": null,
+        "foreign_postal_code": null,
+        "foreign_province": null,
+        "state_code": "AL",
+        "zip": "36104",
+        "zip4": "4344"
+      },
+      "agencies": [
+        {
+          "agency_slug": "department-of-state",
+          "amount": 8500.0,
+          "code": "DOS",
+          "id": 315,
+          "name": "Department of State",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "department-of-homeland-security",
+          "amount": 480.0,
+          "code": "DHS",
+          "id": 766,
+          "name": "Department of Homeland Security",
+          "total_outlays": null
+        }
+      ],
+      "alternate_names": [
+        "SOUTHERN POVERTY LAW CENTER INC",
+        "SOUTHERN POVERTY LAW CENTER INCORPORATED"
+      ],
+      "business_types": [
+        "category_business",
+        "corporate_entity_tax_exempt",
+        "nonprofit"
+      ],
+      "duns": "078962198",
+      "matched": true,
+      "recipient_id": "d6b3baaa-a86d-29ea-d036-a72ccefbd3d4-C",
+      "recipient_name": "SOUTHERN POVERTY LAW CENTER",
+      "spending_over_time": [
+        {
+          "Contract_Obligations": 1280.0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 1280.0,
+          "time_period": {
+            "fiscal_year": "2008"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": -800.0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": -800.0,
+          "time_period": {
+            "fiscal_year": "2009"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 800.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 800.0,
+          "time_period": {
+            "fiscal_year": "2021"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 7700.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 7700.0,
+          "time_period": {
+            "fiscal_year": "2022"
+          },
+          "total_outlays": null
+        }
+      ],
+      "uei": "H2GRQHMF6A63"
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "encouraging-leaders-2026",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/encouraging-leaders-2026/source-1.html",
+          "url": "https://www.justice.gov/usao-mn/pr/minneapolis-non-profit-director-charged-fraud"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/encouraging-leaders-2026/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-mn/pr/minneapolis-non-profit-director-charged-fraud"
+        }
+      ]
+    },
+    "entity_aliases": [],
+    "event_date": "2026-01-09",
+    "i990": {
+      "bmf_region": "eo2",
+      "city": "MINNEAPOLIS",
+      "ein": "844229585",
+      "latest_assets": 205986,
+      "latest_revenue": 728698,
+      "latest_tax_year": 2023,
+      "latest_website": "WWW.ENCOURAGINGLEADERSMN.ORG",
+      "match_score": 100,
+      "matched": true,
+      "ntee_cd": "O50",
+      "org_name": "ENCOURAGING LEADERS",
+      "risk_tier": 3,
+      "risk_total_score": 6,
+      "ruling": "202008",
+      "state": "MN",
+      "subsection": "03",
+      "zip": "55411-3675"
+    },
+    "location": "Minneapolis, MN",
+    "primary_entity_name": "ENCOURAGING LEADERS",
+    "sam": {
+      "address": {
+        "addressLine1": "715 PENN AVE N",
+        "addressLine2": null,
+        "city": "MINNEAPOLIS",
+        "countryCode": "USA",
+        "stateOrProvinceCode": "MN",
+        "zipCode": "55411",
+        "zipCodePlus4": "3625"
+      },
+      "cage": "8RN33",
+      "entity_type_desc": "Business or Organization",
+      "expiration_date": "2024-12-19",
+      "last_update_date": "2024-12-19",
+      "legal_business_name": "ENCOURAGING LEADERS",
+      "matched": true,
+      "no_public_display_flag": "Y",
+      "profit_structure_desc": "Non-Profit Organization",
+      "purpose_desc": "All Awards",
+      "registration_date": "2020-09-09",
+      "registration_status": "Inactive",
+      "uei": "UD37JS3HKKT5"
+    },
+    "scheme_tags": [
+      "grant-fraud",
+      "false-progress-reports",
+      "fabricated-events",
+      "false-beneficiary-counts"
+    ],
+    "summary": "DOJ alleges the nonprofit retained grant money by submitting false reports about events, services, and beneficiaries.",
+    "usaspending": {
+      "address": {
+        "address_line1": "715 PENN AVE N",
+        "address_line2": null,
+        "address_line3": null,
+        "city_name": "MINNEAPOLIS",
+        "congressional_code": "05",
+        "country_code": "USA",
+        "country_name": "UNITED STATES",
+        "county_name": null,
+        "foreign_postal_code": null,
+        "foreign_province": null,
+        "state_code": "MN",
+        "zip": "55411",
+        "zip4": "3625"
+      },
+      "agencies": [
+        {
+          "agency_slug": "department-of-justice",
+          "amount": 702864.0,
+          "code": "DOJ",
+          "id": 252,
+          "name": "Department of Justice",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "small-business-administration",
+          "amount": 7136.0,
+          "code": "SBA",
+          "id": 803,
+          "name": "Small Business Administration",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "department-of-health-and-human-services",
+          "amount": 0.0,
+          "code": "HHS",
+          "id": 806,
+          "name": "Department of Health and Human Services",
+          "total_outlays": null
+        }
+      ],
+      "alternate_names": [],
+      "business_types": [
+        "black_american_owned_business",
+        "category_business",
+        "community_development_corporations",
+        "corporate_entity_tax_exempt",
+        "minority_owned_business",
+        "nonprofit"
+      ],
+      "duns": "117478648",
+      "matched": true,
+      "recipient_id": "7b944895-df7b-b43f-2498-bbc4b51c661c-R",
+      "recipient_name": "ENCOURAGING LEADERS",
+      "spending_over_time": [
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 7136.0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 7136.0,
+          "time_period": {
+            "fiscal_year": "2021"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 702864.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 702864.0,
+          "time_period": {
+            "fiscal_year": "2022"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 125000.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 125000.0,
+          "time_period": {
+            "fiscal_year": "2024"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": -125000.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": -125000.0,
+          "time_period": {
+            "fiscal_year": "2025"
+          },
+          "total_outlays": null
+        }
+      ],
+      "uei": "UD37JS3HKKT5"
+    }
+  },
+  {
+    "amount_text": "$1.9 million",
+    "case_id": "community-academic-success-2026",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/community-academic-success-2026/source-1.html",
+          "url": "https://www.justice.gov/usao-ndil/pr/former-executive-chicago-area-non-profit-sentenced-prison-19-million-fraud-schemes"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/community-academic-success-2026/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-ndil/pr/former-executive-chicago-area-non-profit-sentenced-prison-19-million-fraud-schemes"
+        }
+      ]
+    },
+    "entity_aliases": [
+      "SOUTH SUBURBAN COMMUNITY SERVICES"
+    ],
+    "event_date": "2026-04-08",
+    "i990": {
+      "bmf_region": "eo2",
+      "city": "SOUTH HOLLAND",
+      "ein": "384137760",
+      "latest_assets": null,
+      "latest_revenue": null,
+      "latest_tax_year": null,
+      "latest_website": null,
+      "match_score": 100,
+      "matched": true,
+      "ntee_cd": "B80",
+      "org_name": "SOUTH SUBURBAN COMMUNITY SERVICES",
+      "risk_tier": null,
+      "risk_total_score": null,
+      "ruling": "202309",
+      "state": "IL",
+      "subsection": "03",
+      "zip": "60473-3233"
+    },
+    "location": "Chicago area, IL",
+    "primary_entity_name": "CENTER FOR COMMUNITY ACADEMIC SUCCESS PARTNERSHIPS",
+    "sam": {
+      "address": {
+        "addressLine1": "16234 PRINCE DR",
+        "addressLine2": null,
+        "city": "SOUTH HOLLAND",
+        "countryCode": "USA",
+        "stateOrProvinceCode": "IL",
+        "zipCode": "60473",
+        "zipCodePlus4": "3233"
+      },
+      "cage": "8PJN7",
+      "entity_type_desc": "Business or Organization",
+      "expiration_date": "2025-02-28",
+      "last_update_date": "2025-05-21",
+      "legal_business_name": "SOUTH SUBURBAN COMMUNITY SERVICES",
+      "matched": true,
+      "no_public_display_flag": "Y",
+      "profit_structure_desc": "Non-Profit Organization",
+      "purpose_desc": "All Awards",
+      "registration_date": "2020-08-10",
+      "registration_status": "Inactive",
+      "uei": "HUPRANJ1NSH7"
+    },
+    "scheme_tags": [
+      "grant-fraud",
+      "americorps-fraud",
+      "sham-subcontractors",
+      "double-dipping",
+      "budget-inflation"
+    ],
+    "summary": "Executive sentenced for multiple nonprofit fraud schemes involving inflated grant budgets, sham vendors, and AmeriCorps misuse.",
+    "usaspending": {
+      "address": {
+        "address_line1": "16234 PRINCE DR",
+        "address_line2": "16234 PRINCE DR",
+        "address_line3": null,
+        "city_name": "SOUTH HOLLAND",
+        "congressional_code": "02",
+        "country_code": "USA",
+        "country_name": "UNITED STATES",
+        "county_name": null,
+        "foreign_postal_code": null,
+        "foreign_province": null,
+        "state_code": "IL",
+        "zip": "60473",
+        "zip4": null
+      },
+      "agencies": [
+        {
+          "agency_slug": "small-business-administration",
+          "amount": 23882.18,
+          "code": "SBA",
+          "id": 803,
+          "name": "Small Business Administration",
+          "total_outlays": null
+        }
+      ],
+      "alternate_names": [],
+      "business_types": [
+        "nonprofit"
+      ],
+      "duns": null,
+      "matched": true,
+      "recipient_id": "8a40e61d-818d-3c58-8964-df6c224281cd-R",
+      "recipient_name": "CENTER FOR COMMUNITY ACADEMIC SUCCESS PARTNERSHIPS",
+      "spending_over_time": [
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 11929.72,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 11929.72,
+          "time_period": {
+            "fiscal_year": "2020"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 11952.46,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 11952.46,
+          "time_period": {
+            "fiscal_year": "2021"
+          },
+          "total_outlays": null
+        }
+      ],
+      "uei": null
+    }
+  },
+  {
+    "amount_text": "more than $1.6 million",
+    "case_id": "philadelphia-religious-nonprofit-2026",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/philadelphia-religious-nonprofit-2026/source-1.html",
+          "url": "https://www.justice.gov/usao-edpa/pr/former-executive-director-philadelphia-non-profit-fund-charged-stealing-over-16"
+        },
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/philadelphia-religious-nonprofit-2026/source-2.html",
+          "url": "https://www.justice.gov/usao-edpa/pr/former-philadelphia-nonprofit-executive-pleads-guilty-fraud-and-money-laundering"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/philadelphia-religious-nonprofit-2026/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-edpa/pr/former-executive-director-philadelphia-non-profit-fund-charged-stealing-over-16"
+        },
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/philadelphia-religious-nonprofit-2026/source-2.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-edpa/pr/former-philadelphia-nonprofit-executive-pleads-guilty-fraud-and-money-laundering"
+        }
+      ]
+    },
+    "entity_aliases": [],
+    "event_date": "2026-03-03",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Philadelphia, PA",
+    "primary_entity_name": "PHILADELPHIA RELIGIOUS NONPROFIT FUND",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "beneficiary-fund-theft",
+      "false-ledgers",
+      "luxury-spending",
+      "money-laundering"
+    ],
+    "summary": "DOJ says a nonprofit executive diverted beneficiary funds, hid the theft in false ledgers, and laundered proceeds through personal purchases.",
+    "usaspending": {
+      "matched": false
+    }
+  },
+  {
+    "amount_text": "over $100 million",
+    "case_id": "special-needs-trust-2025",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/special-needs-trust-2025/source-1.html",
+          "url": "https://www.justice.gov/usao-mdfl/pr/florida-non-profit-founder-and-accountant-charged-stealing-over-100-million-special"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/special-needs-trust-2025/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-mdfl/pr/florida-non-profit-founder-and-accountant-charged-stealing-over-100-million-special"
+        }
+      ]
+    },
+    "entity_aliases": [],
+    "event_date": "2025-06-24",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Florida",
+    "primary_entity_name": "CENTER FOR SPECIAL NEEDS TRUST ADMINISTRATION",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "slush-fund",
+      "false-account-statements",
+      "trust-diversion",
+      "money-laundering-conspiracy"
+    ],
+    "summary": "DOJ alleges a nonprofit handling special-needs trusts was used as a slush fund and concealed losses with false account statements.",
+    "usaspending": {
+      "address": {
+        "address_line1": "4912 CREEKSIDE DR",
+        "address_line2": "4912 CREEKSIDE DR",
+        "address_line3": null,
+        "city_name": "CLEARWATER",
+        "congressional_code": "13",
+        "country_code": "USA",
+        "country_name": "UNITED STATES",
+        "county_name": null,
+        "foreign_postal_code": null,
+        "foreign_province": null,
+        "state_code": "FL",
+        "zip": "33760",
+        "zip4": null
+      },
+      "agencies": [
+        {
+          "agency_slug": "small-business-administration",
+          "amount": 301677.11,
+          "code": "SBA",
+          "id": 803,
+          "name": "Small Business Administration",
+          "total_outlays": null
+        }
+      ],
+      "alternate_names": [],
+      "business_types": [
+        "nonprofit"
+      ],
+      "duns": null,
+      "matched": true,
+      "recipient_id": "e194ed63-05cd-3076-cf39-c84f170beb80-R",
+      "recipient_name": "THE CENTER FOR SPECIAL NEEDS TRUST ADMINISTRATION, INC.",
+      "spending_over_time": [
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 301677.11,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 301677.11,
+          "time_period": {
+            "fiscal_year": "2020"
+          },
+          "total_outlays": null
+        }
+      ],
+      "uei": null
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "viet-america-society-2025",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/viet-america-society-2025/source-1.html",
+          "url": "https://www.justice.gov/usao-cdca/pr/founder-oc-based-non-profit-charged-15-count-indictment-alleging-he-bribed-county"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/viet-america-society-2025/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-cdca/pr/founder-oc-based-non-profit-charged-15-count-indictment-alleging-he-bribed-county"
+        }
+      ]
+    },
+    "entity_aliases": [
+      "HAND-TO-HAND RELIEF ORGANIZATION"
+    ],
+    "event_date": "2025-06-06",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Orange County, CA",
+    "primary_entity_name": "VIET AMERICA SOCIETY",
+    "sam": {
+      "address": {
+        "addressLine1": "17801 SANTA ANITA CIR",
+        "addressLine2": null,
+        "city": "FOUNTAIN VALLEY",
+        "countryCode": "USA",
+        "stateOrProvinceCode": "CA",
+        "zipCode": "92708",
+        "zipCodePlus4": "5020"
+      },
+      "cage": "91YS6",
+      "entity_type_desc": "Business or Organization",
+      "expiration_date": "2024-09-05",
+      "last_update_date": "2024-09-05",
+      "legal_business_name": "VIET AMERICA SOCIETY",
+      "matched": true,
+      "no_public_display_flag": "Y",
+      "profit_structure_desc": "Non-Profit Organization",
+      "purpose_desc": "All Awards",
+      "registration_date": "2021-06-10",
+      "registration_status": "Inactive",
+      "uei": "LNVBDCMZZGQ5"
+    },
+    "scheme_tags": [
+      "grant-fraud",
+      "bribery",
+      "controlled-entities",
+      "concealment-laundering"
+    ],
+    "summary": "DOJ alleges county grant funds were steered and concealed through controlled entities and false certifications.",
+    "usaspending": {
+      "matched": false
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "bay-city-theatre-2025",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/bay-city-theatre-2025/source-1.html",
+          "url": "https://www.justice.gov/usao-edmi/pr/former-non-profit-executive-director-and-city-development-official-pleads-guilty"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/bay-city-theatre-2025/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-edmi/pr/former-non-profit-executive-director-and-city-development-official-pleads-guilty"
+        }
+      ]
+    },
+    "entity_aliases": [
+      "BAY CITY HISTORICAL SOCIETY"
+    ],
+    "event_date": "2025-09-23",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Bay City, MI",
+    "primary_entity_name": "BAY CITY STATE THEATRE",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "mission-fund-diversion",
+      "fictitious-board-minutes",
+      "fake-invoices",
+      "fraudulent-grant-replenishment"
+    ],
+    "summary": "Funds earmarked for nonprofit missions were diverted and covered with fake minutes, fake invoices, and a fraudulent grant application.",
+    "usaspending": {
+      "matched": false
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "washington-crime-victim-advocates-2024",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/washington-crime-victim-advocates-2024/source-1.html",
+          "url": "https://www.justice.gov/usao-wdwa/pr/woman-who-fraudulently-used-state-grant-monies-sentenced-probation-and-home"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/washington-crime-victim-advocates-2024/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-wdwa/pr/woman-who-fraudulently-used-state-grant-monies-sentenced-probation-and-home"
+        }
+      ]
+    },
+    "entity_aliases": [],
+    "event_date": "2024-07-17",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Washington",
+    "primary_entity_name": "WASHINGTON COALITION OF CRIME VICTIM ADVOCATES",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "grant-fraud",
+      "false-invoices",
+      "no-show-executive",
+      "salary-extraction"
+    ],
+    "summary": "DOJ says the executive extracted salary and fabricated invoices for trainings that never occurred.",
+    "usaspending": {
+      "matched": false
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "blm-greater-atlanta-2024",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/blm-greater-atlanta-2024/source-1.html",
+          "url": "https://www.justice.gov/usao-ndoh/pr/blm-activist-sentenced-prison-wire-fraud-and-money-laundering"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/blm-greater-atlanta-2024/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-ndoh/pr/blm-activist-sentenced-prison-wire-fraud-and-money-laundering"
+        }
+      ]
+    },
+    "entity_aliases": [],
+    "event_date": "2024-10-06",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Georgia",
+    "primary_entity_name": "BLACK LIVES MATTER OF GREATER ATLANTA",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "donation-diversion",
+      "personal-spending",
+      "real-estate-concealment",
+      "money-laundering"
+    ],
+    "summary": "Sentencing case involving donation diversion, property-related concealment, and money laundering.",
+    "usaspending": {
+      "matched": false
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "michele-fiore-charity-2024",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/michele-fiore-charity-2024/source-1.html",
+          "url": "https://www.justice.gov/archives/opa/pr/former-las-vegas-city-councilwoman-charged-charity-fraud-scheme"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/michele-fiore-charity-2024/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/archives/opa/pr/former-las-vegas-city-councilwoman-charged-charity-fraud-scheme"
+        }
+      ]
+    },
+    "entity_aliases": [],
+    "event_date": "2024-07-17",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Las Vegas, NV",
+    "primary_entity_name": "FIRENZA MEMORIAL CHARITY FUND",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "charity-fraud",
+      "donor-use-misrepresentation",
+      "personal-spending"
+    ],
+    "summary": "DOJ alleges donations solicited for a memorial charity purpose were used for personal and family expenses.",
+    "usaspending": {
+      "matched": false
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "citadel-community-2024",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/citadel-community-2024/source-1.html",
+          "url": "https://www.justice.gov/usao-cdca/pr/former-inland-empire-nonprofit-ceo-arrested-indictment-alleging-she-embezzled-federal"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/citadel-community-2024/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-cdca/pr/former-inland-empire-nonprofit-ceo-arrested-indictment-alleging-she-embezzled-federal"
+        }
+      ]
+    },
+    "entity_aliases": [
+      "CITADEL COMMUNITY CARE FACILITY"
+    ],
+    "event_date": "2024-05-07",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "California",
+    "primary_entity_name": "CITADEL COMMUNITY DEVELOPMENT CORPORATION",
+    "sam": {
+      "address": {
+        "addressLine1": "20280 LYNDON ST",
+        "addressLine2": null,
+        "city": "DETROIT",
+        "countryCode": "USA",
+        "stateOrProvinceCode": "MI",
+        "zipCode": "48223",
+        "zipCodePlus4": "2179"
+      },
+      "cage": "9PA85",
+      "entity_type_desc": "Business or Organization",
+      "expiration_date": "2026-07-09",
+      "last_update_date": "2025-07-11",
+      "legal_business_name": "CITADEL COMMUNITY DEVELOPMENT CORPORATION",
+      "matched": true,
+      "no_public_display_flag": "Y",
+      "profit_structure_desc": "Non-Profit Organization",
+      "purpose_desc": "All Awards",
+      "registration_date": "2023-09-05",
+      "registration_status": "Active",
+      "uei": "ZGZLCNM7Q278"
+    },
+    "scheme_tags": [
+      "federal-grant-embezzlement",
+      "personal-spending",
+      "crypto"
+    ],
+    "summary": "CEO charged with embezzling federal grant funds for personal spending including wedding costs, travel, and crypto.",
+    "usaspending": {
+      "address": {
+        "address_line1": "568 N MOUNTAIN VIEW AVE",
+        "address_line2": null,
+        "address_line3": null,
+        "city_name": "SAN BERNARDINO",
+        "congressional_code": "33",
+        "country_code": "USA",
+        "country_name": "UNITED STATES",
+        "county_name": null,
+        "foreign_postal_code": null,
+        "foreign_province": null,
+        "state_code": "CA",
+        "zip": "92401",
+        "zip4": "1231"
+      },
+      "agencies": [
+        {
+          "agency_slug": "department-of-labor",
+          "amount": 5945000.0,
+          "code": "DOL",
+          "id": 267,
+          "name": "Department of Labor",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "department-of-health-and-human-services",
+          "amount": 300000.0,
+          "code": "HHS",
+          "id": 806,
+          "name": "Department of Health and Human Services",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "small-business-administration",
+          "amount": 10000.0,
+          "code": "SBA",
+          "id": 803,
+          "name": "Small Business Administration",
+          "total_outlays": null
+        }
+      ],
+      "alternate_names": [],
+      "business_types": [
+        "black_american_owned_business",
+        "category_business",
+        "community_developed_corporation_owned_firm",
+        "community_development_corporations",
+        "corporate_entity_tax_exempt",
+        "minority_owned_business",
+        "nonprofit",
+        "special_designations"
+      ],
+      "duns": "078400204",
+      "matched": true,
+      "recipient_id": "a93ad47c-bd30-5032-3f05-39ce8dbea0b8-R",
+      "recipient_name": "CITADEL COMMUNITY DEVELOPMENT CORPORATION",
+      "spending_over_time": [
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 300000.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 300000.0,
+          "time_period": {
+            "fiscal_year": "2014"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 4000000.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 4000000.0,
+          "time_period": {
+            "fiscal_year": "2016"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 2600000.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 2600000.0,
+          "time_period": {
+            "fiscal_year": "2019"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 10000.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 10000.0,
+          "time_period": {
+            "fiscal_year": "2020"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": -655000.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": -655000.0,
+          "time_period": {
+            "fiscal_year": "2024"
+          },
+          "total_outlays": null
+        }
+      ],
+      "uei": "M8XJSTZ2L5G9"
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "latino-coalition-foundation-2023",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/latino-coalition-foundation-2023/source-1.html",
+          "url": "https://www.justice.gov/usao-wdtx/pr/former-nonprofit-leader-pleads-guilty-fraud-san-antonio"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/latino-coalition-foundation-2023/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-wdtx/pr/former-nonprofit-leader-pleads-guilty-fraud-san-antonio"
+        }
+      ]
+    },
+    "entity_aliases": [
+      "HISPANIC BUSINESS ROUNDTABLE INSTITUTE"
+    ],
+    "event_date": "2023-04-21",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "San Antonio, TX",
+    "primary_entity_name": "LATINO COALITION FOUNDATION",
+    "sam": {
+      "address": {
+        "addressLine1": "107 W 10th St",
+        "addressLine2": null,
+        "city": "Kansas City",
+        "countryCode": "USA",
+        "stateOrProvinceCode": "MO",
+        "zipCode": "64105",
+        "zipCodePlus4": "1700"
+      },
+      "cage": "92C05",
+      "entity_type_desc": "Business or Organization",
+      "expiration_date": "2022-07-15",
+      "last_update_date": "2022-07-15",
+      "legal_business_name": "Latino Coalition Foundation, The",
+      "matched": true,
+      "no_public_display_flag": "Y",
+      "profit_structure_desc": "Non-Profit Organization",
+      "purpose_desc": "Federal Assistance Awards",
+      "registration_date": "2021-06-15",
+      "registration_status": "Inactive",
+      "uei": "Z4ALHNFUE715"
+    },
+    "scheme_tags": [
+      "donation-diversion",
+      "false-990",
+      "insider-bank-control"
+    ],
+    "summary": "Former nonprofit leader pleaded guilty after diverting donations and causing false Form 990 filings.",
+    "usaspending": {
+      "address": {
+        "address_line1": "100 SPECTRUM CENTER DRIVE, SUITE 900",
+        "address_line2": "100 SPECTRUM CENTER DRIVE, SUITE 900",
+        "address_line3": null,
+        "city_name": "IRVINE",
+        "congressional_code": "45",
+        "country_code": "USA",
+        "country_name": "UNITED STATES",
+        "county_name": null,
+        "foreign_postal_code": null,
+        "foreign_province": null,
+        "state_code": "CA",
+        "zip": "92618",
+        "zip4": null
+      },
+      "agencies": [
+        {
+          "agency_slug": "small-business-administration",
+          "amount": 17752.59,
+          "code": "SBA",
+          "id": 803,
+          "name": "Small Business Administration",
+          "total_outlays": null
+        }
+      ],
+      "alternate_names": [],
+      "business_types": [],
+      "duns": null,
+      "matched": true,
+      "recipient_id": "4afec046-ceba-aaeb-1b36-3f50afe24dde-R",
+      "recipient_name": "THE LATINO COALITION FOUNDATION",
+      "spending_over_time": [
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 1000.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 16752.6,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 17752.6,
+          "time_period": {
+            "fiscal_year": "2020"
+          },
+          "total_outlays": null
+        }
+      ],
+      "uei": null
+    }
+  },
+  {
+    "amount_text": "millions of dollars",
+    "case_id": "douglas-sailors-charity-network-2022",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/douglas-sailors-charity-network-2022/source-1.html",
+          "url": "https://www.justice.gov/usao-sdfl/pr/charity-operator-charged-diverting-millions-dollars-charitable-funds-and-evading"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/douglas-sailors-charity-network-2022/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-sdfl/pr/charity-operator-charged-diverting-millions-dollars-charitable-funds-and-evading"
+        }
+      ]
+    },
+    "entity_aliases": [
+      "BREAST CANCER SOCIETY",
+      "CHILDREN'S CANCER FUND OF AMERICA",
+      "THE FIREFIGHTERS CHARITABLE FOUNDATION"
+    ],
+    "event_date": "2022-11-04",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Florida / national",
+    "primary_entity_name": "CANCER FUND OF AMERICA",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "nominee-directors",
+      "lookalike-charities",
+      "management-company-extraction",
+      "tax-fraud"
+    ],
+    "summary": "DOJ charged a charity operator for diverting millions using nominee structures, related management companies, and multiple charities.",
+    "usaspending": {
+      "matched": false
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "on-your-feet-2020",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/on-your-feet-2020/source-1.html",
+          "url": "https://www.justice.gov/usao-sdca/pr/charity-founders-plead-guilty-using-non-profit-defraud-donors-and-illegally-evade-taxes"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/on-your-feet-2020/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-sdca/pr/charity-founders-plead-guilty-using-non-profit-defraud-donors-and-illegally-evade-taxes"
+        }
+      ]
+    },
+    "entity_aliases": [
+      "FAMILY RESOURCE CENTER"
+    ],
+    "event_date": "2020-03-13",
+    "i990": {
+      "bmf_region": "eo3",
+      "city": "SAN FRANCISCO",
+      "ein": "863052907",
+      "latest_assets": null,
+      "latest_revenue": null,
+      "latest_tax_year": null,
+      "latest_website": null,
+      "match_score": 100,
+      "matched": true,
+      "ntee_cd": "E99",
+      "org_name": "ON YOUR FEET FOUNDATION INC",
+      "risk_tier": null,
+      "risk_total_score": null,
+      "ruling": "202203",
+      "state": "CA",
+      "subsection": "03",
+      "zip": "94102-1402"
+    },
+    "location": "California",
+    "primary_entity_name": "ON YOUR FEET FOUNDATION",
+    "sam": {
+      "address": {
+        "addressLine1": "4800 Golf Rd Ste 450",
+        "addressLine2": null,
+        "city": "Eau Claire",
+        "countryCode": "USA",
+        "stateOrProvinceCode": "WI",
+        "zipCode": "54701",
+        "zipCodePlus4": "8914"
+      },
+      "cage": null,
+      "entity_type_desc": "Business or Organization",
+      "expiration_date": "2027-04-16",
+      "last_update_date": "2026-04-20",
+      "legal_business_name": "FAMILY RESOURCE CENTER INC",
+      "matched": true,
+      "no_public_display_flag": "Y",
+      "profit_structure_desc": "Non-Profit Organization",
+      "purpose_desc": "Federal Assistance Awards",
+      "registration_date": "2026-04-15",
+      "registration_status": "Active",
+      "uei": "Q6ZSCQJGLM45"
+    },
+    "scheme_tags": [
+      "donor-fraud",
+      "false-charitable-returns",
+      "personal-spending",
+      "tax-evasion"
+    ],
+    "summary": "Founders admitted using a nonprofit to defraud donors and evade taxes.",
+    "usaspending": {
+      "address": {
+        "address_line1": "741 SHERIDAN RD",
+        "address_line2": "741 SHERIDAN RD",
+        "address_line3": null,
+        "city_name": "EVANSTON",
+        "congressional_code": "09",
+        "country_code": "USA",
+        "country_name": "UNITED STATES",
+        "county_name": null,
+        "foreign_postal_code": null,
+        "foreign_province": null,
+        "state_code": "IL",
+        "zip": "60202",
+        "zip4": null
+      },
+      "agencies": [
+        {
+          "agency_slug": "small-business-administration",
+          "amount": 54194.57,
+          "code": "SBA",
+          "id": 803,
+          "name": "Small Business Administration",
+          "total_outlays": null
+        }
+      ],
+      "alternate_names": [],
+      "business_types": [
+        "category_business",
+        "small_business"
+      ],
+      "duns": null,
+      "matched": true,
+      "recipient_id": "2abf5f6a-be51-091e-ec7d-908a60214e0c-R",
+      "recipient_name": "ON YOUR FEET FOUNDATION",
+      "spending_over_time": [
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 5000.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 35950.01,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 40950.01,
+          "time_period": {
+            "fiscal_year": "2020"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 13244.56,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 13244.56,
+          "time_period": {
+            "fiscal_year": "2021"
+          },
+          "total_outlays": null
+        }
+      ],
+      "uei": null
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "montana-native-womens-coalition-2019",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/montana-native-womens-coalition-2019/source-1.html",
+          "url": "https://www.justice.gov/usao-mt/pr/montana-native-women-s-coalition-board-ex-chairwoman-charged-fraud-embezzlement-grant"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/montana-native-womens-coalition-2019/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-mt/pr/montana-native-women-s-coalition-board-ex-chairwoman-charged-fraud-embezzlement-grant"
+        }
+      ]
+    },
+    "entity_aliases": [],
+    "event_date": "2019-08-29",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Montana",
+    "primary_entity_name": "MONTANA NATIVE WOMEN'S COALITION",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "federal-grant-theft",
+      "travel-fraud",
+      "duplicate-payments",
+      "internal-control-failure"
+    ],
+    "summary": "Grant-funded victim-services nonprofit case involving unauthorized payments and travel-related fraud despite prior warning signs.",
+    "usaspending": {
+      "address": {
+        "address_line1": "P.O. BOX 1344",
+        "address_line2": "P.O. BOX 1344",
+        "address_line3": null,
+        "city_name": "LAME DEER",
+        "congressional_code": "00",
+        "country_code": "USA",
+        "country_name": "UNITED STATES",
+        "county_name": null,
+        "foreign_postal_code": null,
+        "foreign_province": null,
+        "state_code": "MT",
+        "zip": "59043",
+        "zip4": "1344"
+      },
+      "agencies": [
+        {
+          "agency_slug": "department-of-justice",
+          "amount": 250000.0,
+          "code": "DOJ",
+          "id": 252,
+          "name": "Department of Justice",
+          "total_outlays": null
+        }
+      ],
+      "alternate_names": [],
+      "business_types": [
+        "nonprofit"
+      ],
+      "duns": null,
+      "matched": true,
+      "recipient_id": "50c06969-7188-07db-c6f2-e1e1bfc806da-R",
+      "recipient_name": "MONTANA NATIVE WOMEN'S COALITION",
+      "spending_over_time": [
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 250000.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 250000.0,
+          "time_period": {
+            "fiscal_year": "2009"
+          },
+          "total_outlays": null
+        }
+      ],
+      "uei": null
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "providence-plan-2017",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/providence-plan-2017/source-1.html",
+          "url": "https://www.justice.gov/usao-ri/pr/former-finance-director-pleads-guilty-embezzlement"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/providence-plan-2017/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-ri/pr/former-finance-director-pleads-guilty-embezzlement"
+        }
+      ]
+    },
+    "entity_aliases": [],
+    "event_date": "2017-03-22",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Providence, RI",
+    "primary_entity_name": "PROVIDENCE PLAN",
+    "sam": {
+      "address": {
+        "addressLine1": "10 DAVOL SQ STE 305",
+        "addressLine2": null,
+        "city": "PROVIDENCE",
+        "countryCode": "USA",
+        "stateOrProvinceCode": "RI",
+        "zipCode": "02903",
+        "zipCodePlus4": "2819"
+      },
+      "cage": "36RS9",
+      "entity_type_desc": "Business or Organization",
+      "expiration_date": "2019-05-23",
+      "last_update_date": "2019-05-23",
+      "legal_business_name": "PROVIDENCE PLAN THE",
+      "matched": true,
+      "no_public_display_flag": "Y",
+      "profit_structure_desc": "Non-Profit Organization",
+      "purpose_desc": "All Awards",
+      "registration_date": "2005-02-24",
+      "registration_status": "Inactive",
+      "uei": "MFT3D3VBLN33"
+    },
+    "scheme_tags": [
+      "forged-checks",
+      "insider-owned-vendor",
+      "grant-diversion",
+      "casino-withdrawals"
+    ],
+    "summary": "Finance director admitted diverting federal and private grant funds through forged checks and an insider-controlled entity.",
+    "usaspending": {
+      "address": {
+        "address_line1": "10 DAVOL SQ STE 305",
+        "address_line2": null,
+        "address_line3": null,
+        "city_name": "PROVIDENCE",
+        "congressional_code": "02",
+        "country_code": "USA",
+        "country_name": "UNITED STATES",
+        "county_name": null,
+        "foreign_postal_code": null,
+        "foreign_province": null,
+        "state_code": "RI",
+        "zip": "02903",
+        "zip4": "2819"
+      },
+      "agencies": [
+        {
+          "agency_slug": "department-of-education",
+          "amount": 37473101.28,
+          "code": "ED",
+          "id": 1068,
+          "name": "Department of Education",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "department-of-labor",
+          "amount": 7459811.07,
+          "code": "DOL",
+          "id": 267,
+          "name": "Department of Labor",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "department-of-health-and-human-services",
+          "amount": 1500000.0,
+          "code": "HHS",
+          "id": 806,
+          "name": "Department of Health and Human Services",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "department-of-agriculture",
+          "amount": 712734.0,
+          "code": "USDA",
+          "id": 95,
+          "name": "Department of Agriculture",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "department-of-housing-and-urban-development",
+          "amount": 378300.0,
+          "code": "HUD",
+          "id": 882,
+          "name": "Department of Housing and Urban Development",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "small-business-administration",
+          "amount": 366585.6,
+          "code": "SBA",
+          "id": 803,
+          "name": "Small Business Administration",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "corporation-for-national-and-community-service",
+          "amount": 200000.0,
+          "code": "CNCS",
+          "id": 1166,
+          "name": "Corporation for National and Community Service",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "department-of-justice",
+          "amount": 190446.0,
+          "code": "DOJ",
+          "id": 252,
+          "name": "Department of Justice",
+          "total_outlays": null
+        }
+      ],
+      "alternate_names": [
+        "PROVIDENCE PLAN",
+        "THE PROVIDENCE PLAN"
+      ],
+      "business_types": [
+        "category_business",
+        "corporate_entity_tax_exempt",
+        "government",
+        "local_government",
+        "nonprofit"
+      ],
+      "duns": "111760591",
+      "matched": true,
+      "recipient_id": "c36d861f-0746-7f62-bf58-14dcf1793b4c-R",
+      "recipient_name": "PROVIDENCE PLAN THE",
+      "spending_over_time": [
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 175457.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 625507.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 800964.0,
+          "time_period": {
+            "fiscal_year": "2008"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 59986.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 5474939.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 5534925.0,
+          "time_period": {
+            "fiscal_year": "2009"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 50346.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 4116032.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 4166378.0,
+          "time_period": {
+            "fiscal_year": "2010"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 54827.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 1598000.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 1652827.0,
+          "time_period": {
+            "fiscal_year": "2011"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 74720.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 11844.0,
+          "Other_Outlays": null,
+          "aggregated_amount": 86564.0,
+          "time_period": {
+            "fiscal_year": "2012"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 78060.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 999772.64,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0.0,
+          "Other_Outlays": null,
+          "aggregated_amount": 1077832.6400000001,
+          "time_period": {
+            "fiscal_year": "2013"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 62588.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 3285222.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 128.0,
+          "Other_Outlays": null,
+          "aggregated_amount": 3347938.0,
+          "time_period": {
+            "fiscal_year": "2014"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 53008.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 5025760.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 5078768.0,
+          "time_period": {
+            "fiscal_year": "2015"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 44454.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 44454.0,
+          "time_period": {
+            "fiscal_year": "2016"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 6668354.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": -5793544.29,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0.0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 874809.71,
+          "time_period": {
+            "fiscal_year": "2017"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 6804714.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": -235200.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0.0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 6569514.0,
+          "time_period": {
+            "fiscal_year": "2018"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 6978721.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0.0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 6978721.0,
+          "time_period": {
+            "fiscal_year": "2019"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 6461735.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 186147.6,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 6647882.6,
+          "time_period": {
+            "fiscal_year": "2020"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 5238962.0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 180438.0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 5419400.0,
+          "time_period": {
+            "fiscal_year": "2021"
+          },
+          "total_outlays": null
+        }
+      ],
+      "uei": "MFT3D3VBLN33"
+    }
+  },
+  {
+    "amount_text": "millions of dollars",
+    "case_id": "birmingham-health-care-2016",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/birmingham-health-care-2016/source-1.html",
+          "url": "https://www.justice.gov/usao-ndal/pr/federal-jury-convicts-former-non-profit-health-clinics-ceo-funneling-millions-grant"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/birmingham-health-care-2016/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-ndal/pr/federal-jury-convicts-former-non-profit-health-clinics-ceo-funneling-millions-grant"
+        }
+      ]
+    },
+    "entity_aliases": [
+      "CENTRAL ALABAMA COMPREHENSIVE HEALTH"
+    ],
+    "event_date": "2016-06-17",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Alabama",
+    "primary_entity_name": "BIRMINGHAM HEALTH CARE",
+    "sam": {
+      "address": {
+        "addressLine1": "203 W LEE ST",
+        "addressLine2": null,
+        "city": "TUSKEGEE",
+        "countryCode": "USA",
+        "stateOrProvinceCode": "AL",
+        "zipCode": "36083",
+        "zipCodePlus4": "1719"
+      },
+      "cage": "3MGJ0",
+      "entity_type_desc": "Business or Organization",
+      "expiration_date": "2014-11-24",
+      "last_update_date": "2021-10-05",
+      "legal_business_name": "CENTRAL ALABAMA COMPREHENSIVE HEALTH INC",
+      "matched": true,
+      "no_public_display_flag": "Y",
+      "profit_structure_desc": "Non-Profit Organization",
+      "purpose_desc": "Federal Assistance Awards",
+      "registration_date": "2003-11-24",
+      "registration_status": "Inactive",
+      "uei": "QXWBFTSN3MK3"
+    },
+    "scheme_tags": [
+      "federal-grant-funneling",
+      "controlled-companies",
+      "bank-fraud",
+      "money-laundering"
+    ],
+    "summary": "Former nonprofit health-clinic CEO convicted of routing federal grant funds through companies he controlled.",
+    "usaspending": {
+      "address": {
+        "address_line1": "203 W LEE ST",
+        "address_line2": null,
+        "address_line3": null,
+        "city_name": "TUSKEGEE",
+        "congressional_code": "03",
+        "country_code": "USA",
+        "country_name": "UNITED STATES",
+        "county_name": null,
+        "foreign_postal_code": null,
+        "foreign_province": null,
+        "state_code": "AL",
+        "zip": "36083",
+        "zip4": "1719"
+      },
+      "agencies": [
+        {
+          "agency_slug": "department-of-health-and-human-services",
+          "amount": 6718909.0,
+          "code": "HHS",
+          "id": 806,
+          "name": "Department of Health and Human Services",
+          "total_outlays": null
+        },
+        {
+          "agency_slug": "small-business-administration",
+          "amount": 5232.0,
+          "code": "SBA",
+          "id": 803,
+          "name": "Small Business Administration",
+          "total_outlays": null
+        }
+      ],
+      "alternate_names": [
+        "CENTRAL ALABAMA COMPREHENSIVE HEALTH  INC",
+        "CENTRAL ALABAMA COMPREHENSIVE HEALTH, INC",
+        "PRIME CARE MEDICAL CENTER, LLC"
+      ],
+      "business_types": [
+        "category_business",
+        "corporate_entity_tax_exempt",
+        "nonprofit",
+        "small_business"
+      ],
+      "duns": "622840254",
+      "matched": true,
+      "recipient_id": "5405b938-e42d-f936-7d01-b7192d42b093-C",
+      "recipient_name": "CENTRAL ALABAMA COMPREHENSIVE HEALTH INC",
+      "spending_over_time": [
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 180000.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 180000.0,
+          "time_period": {
+            "fiscal_year": "2008"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 2079781.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 2079781.0,
+          "time_period": {
+            "fiscal_year": "2009"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 1276664.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 1276664.0,
+          "time_period": {
+            "fiscal_year": "2010"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 1433873.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 1433873.0,
+          "time_period": {
+            "fiscal_year": "2011"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 1398873.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 1398873.0,
+          "time_period": {
+            "fiscal_year": "2012"
+          },
+          "total_outlays": null
+        },
+        {
+          "Contract_Obligations": 0,
+          "Contract_Outlays": null,
+          "Direct_Obligations": 0,
+          "Direct_Outlays": null,
+          "Grant_Obligations": 349718.0,
+          "Grant_Outlays": null,
+          "Idv_Obligations": 0,
+          "Idv_Outlays": null,
+          "Loan_Obligations": 5232.0,
+          "Loan_Outlays": null,
+          "Other_Obligations": 0,
+          "Other_Outlays": null,
+          "aggregated_amount": 354950.0,
+          "time_period": {
+            "fiscal_year": "2013"
+          },
+          "total_outlays": null
+        }
+      ],
+      "uei": "QXWBFTSN3MK3"
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "frontline-initiative-2015",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/frontline-initiative-2015/source-1.html",
+          "url": "https://www.justice.gov/usao-wdpa/pr/charity-director-admits-using-funds-personal-use-filing-false-tax-returns"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/frontline-initiative-2015/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-wdpa/pr/charity-director-admits-using-funds-personal-use-filing-false-tax-returns"
+        }
+      ]
+    },
+    "entity_aliases": [
+      "HERO PROGRAM"
+    ],
+    "event_date": "2015-09-11",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Pennsylvania",
+    "primary_entity_name": "FRONTLINE INITIATIVE",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "donation-diversion",
+      "grant-diversion",
+      "personal-spending",
+      "false-tax-returns"
+    ],
+    "summary": "Charity director admitted using donor and grant funds for extensive personal expenses and filing false tax returns.",
+    "usaspending": {
+      "matched": false
+    }
+  },
+  {
+    "amount_text": "$4 million",
+    "case_id": "national-relief-charities-2013",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/national-relief-charities-2013/source-1.html",
+          "url": "https://www.justice.gov/usao-or/pr/former-president-national-charity-arrested-and-charged-4-million-fraud-and-money"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/national-relief-charities-2013/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-or/pr/former-president-national-charity-arrested-and-charged-4-million-fraud-and-money"
+        }
+      ]
+    },
+    "entity_aliases": [
+      "CHARITY ONE"
+    ],
+    "event_date": "2013-10-21",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Oregon / national",
+    "primary_entity_name": "NATIONAL RELIEF CHARITIES",
+    "sam": {
+      "address": {
+        "addressLine1": "500 E PEYTON ST",
+        "addressLine2": null,
+        "city": "SHERMAN",
+        "countryCode": "USA",
+        "stateOrProvinceCode": "TX",
+        "zipCode": "75090",
+        "zipCodePlus4": "0200"
+      },
+      "cage": "67HE1",
+      "entity_type_desc": "Business or Organization",
+      "expiration_date": "2013-11-26",
+      "last_update_date": "2013-11-26",
+      "legal_business_name": "NATIONAL RELIEF CHARITIES",
+      "matched": true,
+      "no_public_display_flag": "Y",
+      "profit_structure_desc": "Non-Profit Organization",
+      "purpose_desc": "All Awards",
+      "registration_date": "2010-12-20",
+      "registration_status": "Inactive",
+      "uei": "JM1WLMZKLJX7"
+    },
+    "scheme_tags": [
+      "charity-to-charity-pass-through",
+      "false-financial-statements",
+      "scholarship-pretext",
+      "money-laundering"
+    ],
+    "summary": "DOJ alleged a charity executive diverted funds through a second nonprofit and false scholarship-related representations.",
+    "usaspending": {
+      "matched": false
+    }
+  },
+  {
+    "amount_text": "more than $200,000",
+    "case_id": "keelys-district-boxing-2013",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/keelys-district-boxing-2013/source-1.html",
+          "url": "https://www.justice.gov/usao-dc/pr/executive-director-non-profit-pleads-guilty-wire-fraud-admits-using-more-200000-grants"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/keelys-district-boxing-2013/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-dc/pr/executive-director-non-profit-pleads-guilty-wire-fraud-admits-using-more-200000-grants"
+        }
+      ]
+    },
+    "entity_aliases": [],
+    "event_date": "2013-06-26",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Washington, DC",
+    "primary_entity_name": "KEELY'S DISTRICT BOXING AND YOUTH CENTER",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "grant-diversion",
+      "gambling",
+      "personal-expenses"
+    ],
+    "summary": "Executive director admitted using youth-program grants for gambling and other personal expenses.",
+    "usaspending": {
+      "matched": false
+    }
+  },
+  {
+    "amount_text": "$33.7 million restitution",
+    "case_id": "global-missions-2013",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/global-missions-2013/source-1.html",
+          "url": "https://www.justice.gov/usao-ndca/pr/oakland-man-sentenced-121-months-and-ordered-pay-337-million-charity-fraud-scheme"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/global-missions-2013/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-ndca/pr/oakland-man-sentenced-121-months-and-ordered-pay-337-million-charity-fraud-scheme"
+        }
+      ]
+    },
+    "entity_aliases": [],
+    "event_date": "2013-05-21",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "California",
+    "primary_entity_name": "GLOBAL MISSIONS",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "charity-fraud",
+      "donor-fraud",
+      "luxury-spending",
+      "money-laundering"
+    ],
+    "summary": "Sentencing in a long-running charity fraud scheme involving phony representations and personal luxury spending.",
+    "usaspending": {
+      "matched": false
+    }
+  },
+  {
+    "amount_text": null,
+    "case_id": "usa-harvest-2013",
+    "doj": {
+      "artifacts": [
+        {
+          "content_type": "text/html",
+          "kind": "html",
+          "local_path": "data/external/doj_nonprofit_fraud_cases/usa-harvest-2013/source-1.html",
+          "url": "https://www.justice.gov/usao-wdky/pr/founder-usa-harvest-charged-seven-count-federal-indictment-charges-include-stealing"
+        }
+      ],
+      "sources": [
+        {
+          "content_type": "text/html",
+          "downloaded": true,
+          "local_path": "data/external/doj_nonprofit_fraud_cases/usa-harvest-2013/source-1.html",
+          "text_excerpt": "Powered and protected by Privacy",
+          "title": "",
+          "url": "https://www.justice.gov/usao-wdky/pr/founder-usa-harvest-charged-seven-count-federal-indictment-charges-include-stealing"
+        }
+      ]
+    },
+    "entity_aliases": [],
+    "event_date": "2013-01-09",
+    "i990": {
+      "match_score": 0,
+      "matched": false
+    },
+    "location": "Kentucky",
+    "primary_entity_name": "USA HARVEST",
+    "sam": {
+      "matched": false
+    },
+    "scheme_tags": [
+      "donation-theft",
+      "travel-spending",
+      "entertainment-spending",
+      "money-laundering",
+      "tax-fraud"
+    ],
+    "summary": "Founder charged with stealing donations and using charity funds for travel, entertainment, and personal expenses.",
+    "usaspending": {
+      "matched": false
+    }
+  }
+]
