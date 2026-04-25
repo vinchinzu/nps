@@ -159,11 +159,22 @@ class ExportYearsTest(unittest.TestCase):
             with gzip.open(export_path, "rt", encoding="utf-8") as f:
                 body = f.read()
             self.assertIn("Jane Doe", body)
-            self.assertIn("Example Org", body)
+            self.assertIn("role_id", body)
+            self.assertIn("title_id", body)
+
+            with gzip.open(outdir / "persons_titles.csv.gz", "rt", encoding="utf-8") as f:
+                titles = f.read()
+            self.assertIn("CEO", titles)
+
+            with gzip.open(outdir / "persons_roles.csv.gz", "rt", encoding="utf-8") as f:
+                roles = f.read()
+            self.assertIn("officer_director", roles)
 
             manifest = json.loads((outdir / "persons_manifest.json").read_text())
             self.assertEqual(manifest["total_rows"], 1)
-            self.assertIn("person_role", manifest["columns"])
+            self.assertEqual(manifest["profile"], "compact")
+            self.assertIn("role_id", manifest["columns"])
+            self.assertIn("title_id", manifest["dictionaries"])
 
 
 if __name__ == "__main__":

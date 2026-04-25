@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import gzip
 import json
+import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -238,7 +239,10 @@ def export_years(
     return {"years": summary, "manifest": str(manifest_path)}
 
 
-PERSONS_COLUMNS = [
+PERSONS_DEFAULT_ROWS_PER_FILE = 2_000_000
+PERSONS_MAX_FILE_BYTES = 50_000_000
+
+PERSONS_FULL_COLUMNS = [
     "object_id",
     "ein",
     "tax_year",
@@ -265,7 +269,32 @@ PERSONS_COLUMNS = [
     "total_revenue",
 ]
 
-_PERSONS_QUERY = """
+PERSONS_COMPACT_COLUMNS = [
+    "object_id",
+    "ein",
+    "tax_year",
+    "role_id",
+    "name",
+    "title_id",
+    "reportable_comp",
+    "other_comp",
+    "related_org_comp",
+    "hours_per_week",
+    "hours_related",
+    "is_officer",
+    "is_director",
+    "is_key_employee",
+    "is_hce",
+    "is_former",
+    "state",
+    "ntee_cd",
+    "subsection",
+    "total_revenue",
+]
+
+PERSONS_COLUMNS = PERSONS_COMPACT_COLUMNS
+
+_PERSONS_FULL_QUERY = """
     SELECT
         p.object_id, p.ein, p.tax_year, p.person_role,
         p.name, p.name_norm, p.title,
@@ -284,15 +313,128 @@ _PERSONS_QUERY = """
      ORDER BY p.ein, p.tax_year, p.person_role, p.name_norm
 """
 
+_PERSONS_COMPACT_QUERY = """
+    SELECT
+        p.object_id, p.ein, p.tax_year, p.person_role,
+        p.name, p.title,
+        p.reportable_comp, p.other_comp, p.related_org_comp,
+        p.hours_per_week, p.hours_related,
+        p.is_officer, p.is_director, p.is_key_employee,
+        p.is_hce, p.is_former,
+        COALESCE(o.state, d.state) AS state,
+        o.ntee_cd                  AS ntee_cd,
+        o.subsection               AS subsection,
+        d.total_revenue            AS total_revenue
+      FROM filing_persons p
+      LEFT JOIN filing_details d USING (object_id)
+      LEFT JOIN organizations o ON o.ein = p.ein
+     ORDER BY p.ein, p.tax_year, p.person_role, p.name_norm
+"""
+
+
+def _clear_person_exports(outdir: Path) -> None:
+    for path in outdir.glob("persons_part*.csv.gz"):
+        path.unlink()
+    for name in (
+        "persons_manifest.json",
+        "persons_roles.csv.gz",
+        "persons_titles.csv.gz",
+    ):
+        (outdir / name).unlink(missing_ok=True)
+
+
+def _write_person_lookup(
+    conn: sqlite3.Connection,
+    *,
+    outdir: Path,
+    column: str,
+    id_column: str,
+    value_column: str,
+    filename: str,
+    max_file_bytes: int | None,
+) -> tuple[dict[str, int], dict]:
+    path = outdir / filename
+    lookup = {"": 0}
+
+    with gzip.open(path, "wt", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=[id_column, value_column])
+        writer.writeheader()
+        writer.writerow({id_column: 0, value_column: ""})
+        query = f"""
+            SELECT DISTINCT TRIM({column}) AS value
+              FROM filing_persons
+             WHERE {column} IS NOT NULL
+               AND TRIM({column}) <> ''
+             ORDER BY value
+        """
+        for value_id, row in enumerate(conn.execute(query), 1):
+            value = row["value"]
+            lookup[value] = value_id
+            writer.writerow({id_column: value_id, value_column: value})
+
+    bytes_written = path.stat().st_size
+    if max_file_bytes is not None and bytes_written > max_file_bytes:
+        raise ValueError(
+            f"{path} is {bytes_written:,} bytes, above the "
+            f"{max_file_bytes:,}-byte cap"
+        )
+    return lookup, {
+        "rows": len(lookup),
+        "bytes": bytes_written,
+        "path": str(path),
+    }
+
+
+def _compact_person_row(
+    row: sqlite3.Row,
+    role_ids: dict[str, int],
+    title_ids: dict[str, int],
+) -> dict:
+    role = (row["person_role"] or "").strip()
+    title = (row["title"] or "").strip()
+    return {
+        "object_id": row["object_id"],
+        "ein": row["ein"],
+        "tax_year": row["tax_year"],
+        "role_id": role_ids.get(role, 0),
+        "name": row["name"],
+        "title_id": title_ids.get(title, 0),
+        "reportable_comp": row["reportable_comp"],
+        "other_comp": row["other_comp"],
+        "related_org_comp": row["related_org_comp"],
+        "hours_per_week": row["hours_per_week"],
+        "hours_related": row["hours_related"],
+        "is_officer": row["is_officer"],
+        "is_director": row["is_director"],
+        "is_key_employee": row["is_key_employee"],
+        "is_hce": row["is_hce"],
+        "is_former": row["is_former"],
+        "state": row["state"],
+        "ntee_cd": row["ntee_cd"],
+        "subsection": row["subsection"],
+        "total_revenue": row["total_revenue"],
+    }
+
 
 def export_persons(
     outdir: Path | None = None,
     db_path: Path | None = None,
-    rows_per_file: int = 200000,
+    rows_per_file: int | None = PERSONS_DEFAULT_ROWS_PER_FILE,
+    profile: str = "compact",
+    max_file_bytes: int | None = PERSONS_MAX_FILE_BYTES,
 ) -> dict:
     """Export filing_persons to chunked csv.gz files for network analysis."""
     outdir = Path(outdir or EXPORT_DIR)
     outdir.mkdir(parents=True, exist_ok=True)
+
+    if profile not in {"compact", "full"}:
+        raise ValueError(f"unknown persons export profile: {profile}")
+    if rows_per_file is not None and rows_per_file <= 0:
+        rows_per_file = None
+    _clear_person_exports(outdir)
+
+    columns = PERSONS_COMPACT_COLUMNS if profile == "compact" else PERSONS_FULL_COLUMNS
+    query = _PERSONS_COMPACT_QUERY if profile == "compact" else _PERSONS_FULL_QUERY
 
     total_rows = 0
     total_bytes = 0
@@ -301,6 +443,9 @@ def export_persons(
     f = None
     writer = None
     path: Path | None = None
+    dictionaries: dict[str, dict] = {}
+    role_ids: dict[str, int] = {}
+    title_ids: dict[str, int] = {}
 
     def close_part() -> None:
         nonlocal f, writer, total_bytes, path
@@ -308,6 +453,10 @@ def export_persons(
             return
         f.close()
         sz = path.stat().st_size
+        if max_file_bytes is not None and sz > max_file_bytes:
+            raise ValueError(
+                f"{path} is {sz:,} bytes, above the {max_file_bytes:,}-byte cap"
+            )
         total_bytes += sz
         parts.append({"rows": part_rows, "bytes": sz, "path": str(path)})
         f = None
@@ -319,20 +468,48 @@ def export_persons(
         part_no += 1
         path = outdir / f"persons_part{part_no:02d}.csv.gz"
         f = gzip.open(path, "wt", encoding="utf-8", newline="")
-        writer = csv.DictWriter(f, fieldnames=PERSONS_COLUMNS)
+        writer = csv.DictWriter(f, fieldnames=columns)
         writer.writeheader()
 
     part_rows = 0
     with session(db_path) as conn:
-        for row in conn.execute(_PERSONS_QUERY):
+        if profile == "compact":
+            role_ids, role_info = _write_person_lookup(
+                conn,
+                outdir=outdir,
+                column="person_role",
+                id_column="role_id",
+                value_column="person_role",
+                filename="persons_roles.csv.gz",
+                max_file_bytes=max_file_bytes,
+            )
+            title_ids, title_info = _write_person_lookup(
+                conn,
+                outdir=outdir,
+                column="title",
+                id_column="title_id",
+                value_column="title",
+                filename="persons_titles.csv.gz",
+                max_file_bytes=max_file_bytes,
+            )
+            dictionaries = {
+                "role_id": role_info,
+                "title_id": title_info,
+            }
+            total_bytes += role_info["bytes"] + title_info["bytes"]
+
+        for row in conn.execute(query):
             if writer is None:
                 open_part()
-            elif part_rows >= rows_per_file:
+            elif rows_per_file is not None and part_rows >= rows_per_file:
                 close_part()
                 part_rows = 0
                 open_part()
             assert writer is not None
-            writer.writerow({col: row[col] for col in PERSONS_COLUMNS})
+            if profile == "compact":
+                writer.writerow(_compact_person_row(row, role_ids, title_ids))
+            else:
+                writer.writerow({col: row[col] for col in columns})
             total_rows += 1
             part_rows += 1
 
@@ -342,9 +519,13 @@ def export_persons(
     manifest = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "format": "csv.gz",
+        "profile": profile,
         "rows_per_file": rows_per_file,
-        "columns": PERSONS_COLUMNS,
+        "max_file_bytes": max_file_bytes,
+        "columns": columns,
+        "dictionaries": dictionaries,
         "total_rows": total_rows,
+        "total_bytes": total_bytes,
         "parts": parts,
     }
     manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")

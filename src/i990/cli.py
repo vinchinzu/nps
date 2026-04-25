@@ -179,6 +179,8 @@ def _cmd_export_persons(args: argparse.Namespace) -> int:
     result = export_mod.export_persons(
         outdir=Path(args.outdir) if args.outdir else EXPORT_DIR,
         rows_per_file=args.rows_per_file,
+        profile="full" if args.full else "compact",
+        max_file_bytes=int(args.max_file_mb * 1_000_000) if args.max_file_mb else None,
     )
     print(
         f"persons: rows={result['total_rows']:,} files={result['files']} "
@@ -235,7 +237,11 @@ def main(argv: list[str] | None = None) -> int:
         help="Write filing_persons to chunked csv.gz for network analysis.",
     )
     sp.add_argument("--outdir", help="Override output directory.")
-    sp.add_argument("--rows-per-file", type=int, default=200000)
+    sp.add_argument("--rows-per-file", type=int, default=2_000_000)
+    sp.add_argument("--max-file-mb", type=float, default=50.0,
+                    help="Fail if any generated persons file exceeds this many MB.")
+    sp.add_argument("--full", action="store_true",
+                    help="Use the older wide text-heavy persons schema.")
     sp.set_defaults(func=_cmd_export_persons)
 
     sp = sub.add_parser("status", help="Print DB status and recent runs.")
