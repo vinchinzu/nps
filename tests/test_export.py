@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from i990.db import connect
-from i990.export import export_years
+from i990.export import export_persons, export_years
 
 
 class ExportYearsTest(unittest.TestCase):
@@ -97,6 +97,73 @@ class ExportYearsTest(unittest.TestCase):
             values = dict(zip(header, row))
             self.assertEqual(values["risk_total_score"], "0")
             self.assertEqual(values["risk_tier"], "0")
+
+    def test_person_unique_index_dedupes_nullable_fields(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            db_path = Path(td) / "test.sqlite"
+
+            conn = connect(db_path)
+            for _ in range(2):
+                conn.execute(
+                    """
+                    INSERT OR IGNORE INTO filing_persons(
+                        object_id, ein, tax_year, person_role,
+                        name, name_norm, title, services_desc
+                    ) VALUES ('oid1', '123456789', 2024, 'contractor',
+                              'Jane Doe', 'JANE DOE', NULL, NULL)
+                    """
+                )
+            count = conn.execute("SELECT COUNT(*) FROM filing_persons").fetchone()[0]
+            conn.close()
+
+            self.assertEqual(count, 1)
+
+    def test_export_persons_writes_denormalized_csv_and_manifest(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            db_path = root / "test.sqlite"
+            outdir = root / "exports"
+
+            conn = connect(db_path)
+            conn.execute(
+                """
+                INSERT INTO organizations(ein, name, state, subsection, ntee_cd, bmf_region)
+                VALUES ('123456789', 'Example Org', 'TX', '03', 'B12', 'eo1')
+                """
+            )
+            conn.execute(
+                """
+                INSERT INTO filing_details(
+                    object_id, ein, tax_year, org_name, total_revenue
+                ) VALUES ('oid1', '123456789', 2024, 'Fallback Org', 100)
+                """
+            )
+            conn.execute(
+                """
+                INSERT INTO filing_persons(
+                    object_id, ein, tax_year, person_role, name, name_norm, title
+                ) VALUES ('oid1', '123456789', 2024, 'officer_director',
+                          'Jane Doe', 'JANE DOE', 'CEO')
+                """
+            )
+            conn.commit()
+            conn.close()
+
+            result = export_persons(outdir=outdir, db_path=db_path)
+
+            export_path = outdir / "persons_part01.csv.gz"
+            self.assertTrue(export_path.exists())
+            self.assertEqual(result["total_rows"], 1)
+            self.assertEqual(result["files"], 1)
+
+            with gzip.open(export_path, "rt", encoding="utf-8") as f:
+                body = f.read()
+            self.assertIn("Jane Doe", body)
+            self.assertIn("Example Org", body)
+
+            manifest = json.loads((outdir / "persons_manifest.json").read_text())
+            self.assertEqual(manifest["total_rows"], 1)
+            self.assertIn("person_role", manifest["columns"])
 
 
 if __name__ == "__main__":

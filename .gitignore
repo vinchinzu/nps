@@ -15,3 +15,4 @@ data/i990.sqlite*
 data/*.lock
 *.part
 .DS_Store
+reports/

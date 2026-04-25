@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 import shutil
 import sqlite3
 import subprocess
@@ -82,8 +83,157 @@ def _int(el: ET.Element | None) -> int | None:
         return None
 
 
+def _norm_name(name: str | None) -> str | None:
+    """Normalise a person name for cross-EIN matching."""
+    if not name:
+        return None
+    n = name.upper().strip()
+    n = re.sub(r"[.,]", " ", n)
+    n = re.sub(r"\s+", " ", n).strip()
+    n = re.sub(r"\s+(JR|SR|II|III|IV|V|VI)$", "", n)
+    n = re.sub(r"\s+", " ", n)
+    return n.strip() or None
+
+
+def _ind_int(val: str | None) -> int | None:
+    if val is None:
+        return None
+    return 1 if val.lower() in ("x", "true", "1", "yes") else 0
+
+
+def _hours_float(val: str | None) -> float | None:
+    if not val:
+        return None
+    try:
+        return float(val.replace(",", ""))
+    except ValueError:
+        return None
+
+
+def _extract_persons(root: ET.Element, ein: str, tax_year: int | None) -> list[dict]:
+    """Extract all person records from a filing for the filing_persons table.
+
+    Covers:
+      - Form990 Part VII Section A: officers, directors, trustees, key employees
+      - Form990 Part VII Section B: top independent contractors
+      - Form990PF: OfficerDirTrstKeyEmplInfoGrp
+      - ReturnHeader: signing officer and preparer
+    """
+    persons: list[dict] = []
+
+    def _row(role: str, **kw) -> dict:
+        return {"ein": ein, "tax_year": tax_year, "person_role": role, **kw}
+
+    # --- Part VII Section A (990/990EZ officers, directors, key employees) ---
+    for el in root.iter():
+        tag = _localname(el.tag)
+        if tag != "Form990PartVIISectionAGrp":
+            continue
+        name = _text(_find(el, "PersonNm")) or _text(_find(el, "BusinessName/BusinessNameLine1Txt"))
+        title = _text(_find(el, "TitleTxt"))
+        comp = _int(_find(el, "ReportableCompFromOrgAmt"))
+        other = _int(_find(el, "OtherCompensationAmt"))
+        related_comp = _int(_find(el, "ReportableCompFromRltdOrgAmt"))
+        is_key = _ind_int(_text(_find(el, "KeyEmployeeInd")))
+        is_hce = _ind_int(_text(_find(el, "HighlyCompensatedEmployeeInd")))
+        is_former = _ind_int(_text(_find(el, "FormerOfcrDirectorTrusteeInd")))
+        persons.append(_row(
+            "officer_director",
+            name=name,
+            name_norm=_norm_name(name),
+            title=title,
+            reportable_comp=comp,
+            other_comp=other,
+            related_org_comp=related_comp,
+            hours_per_week=_hours_float(_text(_find(el, "AverageHoursPerWeekRt"))),
+            hours_related=_hours_float(_text(_find(el, "AverageHoursPerWeekRltdOrgRt"))),
+            is_officer=_ind_int(_text(_find(el, "OfficerInd"))),
+            is_director=_ind_int(_text(_find(el, "IndividualTrusteeOrDirectorInd"))),
+            is_key_employee=is_key,
+            is_hce=is_hce,
+            is_former=is_former,
+        ))
+
+    # --- Part VII Section B (independent contractors) ---
+    for el in root.iter():
+        if _localname(el.tag) != "Form990PartVIISectionBGrp":
+            continue
+        name = (_text(_find(el, "PersonNm"))
+                or _text(_find(el, "BusinessName/BusinessNameLine1Txt")))
+        comp = _int(_find(el, "CompensationAmt"))
+        services = _text(_find(el, "ServicesDesc"))
+        persons.append(_row(
+            "contractor",
+            name=name,
+            name_norm=_norm_name(name),
+            title=None,
+            reportable_comp=comp,
+            services_desc=services,
+        ))
+
+    # --- 990PF officer/director/trustee/key-employee group ---
+    for el in root.iter():
+        if _localname(el.tag) not in (
+            "OfficerDirTrstKeyEmplInfoGrp",
+            "OfficerDirectorTrusteeEmplGrp",
+        ):
+            continue
+        name = (_text(_find(el, "PersonNm"))
+                or _text(_find(el, "BusinessName/BusinessNameLine1Txt")))
+        title = _text(_find(el, "TitleTxt"))
+        comp = _int(_find(el, "CompensationAmt"))
+        persons.append(_row(
+            "officer_director",
+            name=name,
+            name_norm=_norm_name(name),
+            title=title,
+            reportable_comp=comp,
+        ))
+
+    # --- Related-org officer table (Schedule R / Part VII) ---
+    for el in root.iter():
+        if _localname(el.tag) != "RltdOrgOfficerTrstKeyEmplGrp":
+            continue
+        name = _text(_find(el, "PersonNm"))
+        title = _text(_find(el, "TitleTxt"))
+        comp = _int(_find(el, "ReportableCompFromOrgAmt"))
+        persons.append(_row(
+            "related_org_officer",
+            name=name,
+            name_norm=_norm_name(name),
+            title=title,
+            reportable_comp=comp,
+            hours_per_week=_hours_float(_text(_find(el, "AverageHrsPerWkDevotedToPosRt"))),
+        ))
+
+    # --- ReturnHeader: signing officer ---
+    hdr = _find(root, "ReturnHeader")
+    if hdr is not None:
+        bog = _find(hdr, "BusinessOfficerGrp")
+        if bog is not None:
+            name = _text(_find(bog, "PersonNm"))
+            title = _text(_find(bog, "PersonTitleTxt"))
+            persons.append(_row(
+                "signing_officer",
+                name=name,
+                name_norm=_norm_name(name),
+                title=title,
+            ))
+        prep = _find(hdr, "PreparerPersonGrp")
+        if prep is not None:
+            name = _text(_find(prep, "PreparerPersonNm"))
+            persons.append(_row(
+                "preparer",
+                name=name,
+                name_norm=_norm_name(name),
+                title="Preparer",
+            ))
+
+    return [p for p in persons if p.get("name_norm")]
+
+
 def _officers(root: ET.Element, limit: int = 10) -> list[dict]:
-    """Extract Form 990 Part VII officer/key employee rows."""
+    """Extract Form 990 Part VII Section A officer rows for officers_json."""
     out: list[dict] = []
     for el in root.iter():
         if _localname(el.tag) != "Form990PartVIISectionAGrp":
@@ -92,17 +242,189 @@ def _officers(root: ET.Element, limit: int = 10) -> list[dict]:
         title = _text(_find(el, "TitleTxt"))
         comp = _int(_find(el, "ReportableCompFromOrgAmt"))
         other = _int(_find(el, "OtherCompensationAmt"))
+        related_comp = _int(_find(el, "ReportableCompFromRltdOrgAmt"))
         hours = _text(_find(el, "AverageHoursPerWeekRt"))
+        hours_related = _text(_find(el, "AverageHoursPerWeekRltdOrgRt"))
+        is_officer = _text(_find(el, "OfficerInd"))
+        is_director = _text(_find(el, "IndividualTrusteeOrDirectorInd"))
         out.append({
             "name": name,
             "title": title,
             "reportable_comp": comp,
             "other_comp": other,
+            "related_org_comp": related_comp,
             "hours_per_week": hours,
+            "hours_per_week_related": hours_related,
+            "is_officer": is_officer,
+            "is_director": is_director,
         })
         if len(out) >= limit:
             break
     return out
+
+
+# Boolean indicator fields from Parts IV, V, VI of Form 990.
+# These are the self-reported yes/no checklist items.
+_FLAG_TAGS = (
+    # Part IV: Required Schedules
+    "PoliticalCampaignActyInd",
+    "LobbyingActivitiesInd",
+    "SubjectToProxyTaxInd",
+    "DonorAdvisedFundInd",
+    "ConservationEasementsInd",
+    "CollectionsOfArtInd",
+    "CreditCounselingInd",
+    "DonorRstrOrQuasiEndowmentsInd",
+    "ReportLandBuildingEquipmentInd",
+    "ReportInvestmentsOtherSecInd",
+    "ReportProgramRelatedInvstInd",
+    "ReportOtherAssetsInd",
+    "ReportOtherLiabilitiesInd",
+    "IncludeFIN48FootnoteInd",
+    "IndependentAuditFinclStmtInd",
+    "ConsolidatedAuditFinclStmtInd",
+    "SchoolOperatingInd",
+    "ForeignOfficeInd",
+    "ForeignActivitiesInd",
+    "MoreThan5000KToOrgInd",
+    "MoreThan5000KToIndividualsInd",
+    "ProfessionalFundraisingInd",
+    "FundraisingActivitiesInd",
+    "GamingActivitiesInd",
+    "OperateHospitalInd",
+    "GrantsToOrganizationsInd",
+    "GrantsToIndividualsInd",
+    "ScheduleJRequiredInd",
+    "TaxExemptBondsInd",
+    "EngagedInExcessBenefitTransInd",
+    "PYExcessBenefitTransInd",
+    "LoanOutstandingInd",
+    "GrantToRelatedPersonInd",
+    "BusinessRlnWithOrgMemInd",
+    "BusinessRlnWithFamMemInd",
+    "BusinessRlnWith35CtrlEntInd",
+    "DeductibleNonCashContriInd",
+    "DeductibleArtContributionInd",
+    "TerminateOperationsInd",
+    "PartialLiquidationInd",
+    "DisregardedEntityInd",
+    "RelatedEntityInd",
+    "RelatedOrganizationCtrlEntInd",
+    "TransactionWithControlEntInd",
+    "TrnsfrExmptNonChrtblRltdOrgInd",
+    "ActivitiesConductedPrtshpInd",
+    # Part V: Other IRS Filings
+    "BackupWthldComplianceInd",
+    "EmploymentTaxReturnsFiledInd",
+    "UnrelatedBusIncmOverLimitInd",
+    "ForeignFinancialAccountInd",
+    "ProhibitedTaxShelterTransInd",
+    "TaxablePartyNotificationInd",
+    "NondeductibleContributionsInd",
+    "QuidProQuoContributionsInd",
+    "Form8282PropertyDisposedOfInd",
+    "RcvFndsToPayPrsnlBnftCntrctInd",
+    "PayPremiumsPrsnlBnftCntrctInd",
+    "Form8899Filedind",
+    "Form1098CFiledInd",
+    "DAFExcessBusinessHoldingsInd",
+    "TaxableDistributionsInd",
+    "DistributionToDonorInd",
+    "IndoorTanningServicesInd",
+    "SubjToTaxRmnrtnExPrchtPymtInd",
+    "SubjectToExcsTaxNetInvstIncInd",
+    # Part VI: Governance
+    "FamilyOrBusinessRlnInd",
+    "DelegationOfMgmtDutiesInd",
+    "ChangeToOrgDocumentsInd",
+    "MaterialDiversionOrMisuseInd",
+    "MembersOrStockholdersInd",
+    "ElectionOfBoardMembersInd",
+    "DecisionsSubjectToApprovaInd",
+    "MinutesOfGoverningBodyInd",
+    "MinutesOfCommitteesInd",
+    "OfficerMailingAddressInd",
+    "LocalChaptersInd",
+    "Form990ProvidedToGvrnBodyInd",
+    "ConflictOfInterestPolicyInd",
+    "AnnualDisclosureCoveredPrsnInd",
+    "RegularMonitoringEnfrcInd",
+    "WhistleblowerPolicyInd",
+    "DocumentRetentionPolicyInd",
+    "CompensationProcessCEOInd",
+    "CompensationProcessOtherInd",
+    "InvestmentInJointVentureInd",
+    # Compensation / Part VII summary
+    "FormerOfcrEmployeesListedInd",
+    "TotalCompGreaterThan150KInd",
+    "CompensationFromOtherSrcsInd",
+    # Financial / accounting
+    "MethodOfAccountingCashInd",
+    "MethodOfAccountingAccrualInd",
+    "AccountantCompileOrReviewInd",
+    "FSAuditedInd",
+    "FederalGrantAuditRequiredInd",
+    # General
+    "GroupReturnForAffiliatesInd",
+    "DescribedInSection501c3Ind",
+    "ScheduleBRequiredInd",
+    "ScheduleORequiredInd",
+    "InitialReturnInd",
+    "FinalReturnInd",
+    "AddressChangeInd",
+    "AmendedReturnInd",
+    "ApplicationPendingInd",
+)
+
+
+def _bool_val(el: ET.Element | None) -> bool | None:
+    """Normalise IRS boolean indicators (true/false/X/x/1/0) to Python bool."""
+    v = _text(el)
+    if v is None:
+        return None
+    lv = v.lower()
+    if lv in ("true", "x", "1", "yes"):
+        return True
+    if lv in ("false", "0", "no"):
+        return False
+    return None
+
+
+def _collect_flags(irs_section: ET.Element) -> dict:
+    """Walk an IRS990/EZ/PF element and return all known flag indicators."""
+    flags: dict = {}
+    tag_set = set(_FLAG_TAGS)
+    for el in irs_section.iter():
+        lname = _localname(el.tag)
+        if lname in tag_set:
+            val = _bool_val(el)
+            if val is not None and lname not in flags:
+                flags[lname] = val
+    return flags
+
+
+def _collect_raw_scalars(irs_section: ET.Element) -> dict:
+    """Return all scalar (leaf-node) fields from an IRS990/EZ/PF element.
+
+    Only captures elements with no children and non-empty text. Keys are
+    the local tag names; duplicate tags keep the last value (rare in IRS XML).
+    """
+    raw: dict = {}
+    for el in irs_section.iter():
+        if len(el) == 0:  # leaf node
+            v = (el.text or "").strip()
+            if v:
+                raw[_localname(el.tag)] = v
+    return raw
+
+
+def _find_irs_section(root: ET.Element) -> ET.Element | None:
+    """Find the first IRS990, IRS990EZ, or IRS990PF element."""
+    for name in ("IRS990", "IRS990EZ", "IRS990PF", "IRS990T"):
+        el = _find(root, f"ReturnData/{name}")
+        if el is not None:
+            return el
+    return None
 
 
 def extract(xml_bytes: bytes) -> dict | None:
@@ -123,6 +445,8 @@ def extract(xml_bytes: bytes) -> dict | None:
     if address is None:
         address = _find(filer_ctx, "ForeignAddress")
 
+    irs = _find_irs_section(root)
+
     # Try common revenue/assets field names across 990 variants.
     total_rev = _int(_find(root,
         "ReturnData/IRS990/TotalRevenueGrp/TotalRevenueColumnAmt",
@@ -138,7 +462,6 @@ def extract(xml_bytes: bytes) -> dict | None:
     ))
     assets_eoy = _int(_find(root,
         "ReturnData/IRS990/TotalAssetsEOYAmt",
-        "ReturnData/IRS990/NetAssetsOrFundBalancesEOYAmt",
         "ReturnData/IRS990EZ/TotalAssetsEOYAmt",
         "ReturnData/IRS990PF/FMVAssetsEOYAmt",
     ))
@@ -150,7 +473,6 @@ def extract(xml_bytes: bytes) -> dict | None:
         "ReturnData/IRS990/NetAssetsOrFundBalancesEOYAmt",
         "ReturnData/IRS990EZ/NetAssetsOrFundBalancesEOYAmt",
     ))
-
     mission = _text(_find(root,
         "ReturnData/IRS990/ActivityOrMissionDesc",
         "ReturnData/IRS990/MissionDesc",
@@ -161,10 +483,99 @@ def extract(xml_bytes: bytes) -> dict | None:
         "ReturnData/IRS990EZ/WebsiteAddressTxt",
     ))
 
+    # Extended fields
+    gross_receipts = _int(_find(root,
+        "ReturnData/IRS990/GrossReceiptsAmt",
+        "ReturnData/IRS990EZ/GrossReceiptsAmt",
+    ))
+    formation_yr = _int(_find(root,
+        "ReturnData/IRS990/FormationYr",
+        "ReturnData/IRS990EZ/FormationYr",
+    ))
+    legal_domicile = _text(_find(root,
+        "ReturnData/IRS990/LegalDomicileStateCd",
+        "ReturnData/IRS990EZ/LegalDomicileStateCd",
+    ))
+    principal_officer = _text(_find(root,
+        "ReturnData/IRS990/PrincipalOfficerNm",
+        "ReturnData/IRS990EZ/PrincipalOfcrNm",
+    ))
+    phone = _text(_find(filer_ctx, "PhoneNum"))
+    voting_members = _int(_find(root,
+        "ReturnData/IRS990/VotingMembersGoverningBodyCnt",
+        "ReturnData/IRS990/GoverningBodyVotingMembersCnt",
+    ))
+    independent_members = _int(_find(root,
+        "ReturnData/IRS990/VotingMembersIndependentCnt",
+        "ReturnData/IRS990/IndependentVotingMemberCnt",
+    ))
+    total_employees = _int(_find(root,
+        "ReturnData/IRS990/TotalEmployeeCnt",
+        "ReturnData/IRS990EZ/EmployeeCnt",
+    ))
+    total_volunteers = _int(_find(root,
+        "ReturnData/IRS990/TotalVolunteersCnt",
+    ))
+    total_gross_ubi = _int(_find(root,
+        "ReturnData/IRS990/TotalGrossUBIAmt",
+        "ReturnData/IRS990EZ/TotalGrossUBIAmt",
+    ))
+    py_total_revenue = _int(_find(root,
+        "ReturnData/IRS990/PYTotalRevenueAmt",
+        "ReturnData/IRS990EZ/PYTotalRevenueAmt",
+    ))
+    cy_contributions = _int(_find(root,
+        "ReturnData/IRS990/CYContributionsGrantsAmt",
+        "ReturnData/IRS990/TotalContributionsAmt",
+        "ReturnData/IRS990EZ/TotalContributionsAmt",
+    ))
+    cy_program_svc_rev = _int(_find(root,
+        "ReturnData/IRS990/CYProgramServiceRevenueAmt",
+        "ReturnData/IRS990EZ/ProgramServiceRevenueAmt",
+    ))
+    cy_investment_income = _int(_find(root,
+        "ReturnData/IRS990/CYInvestmentIncomeAmt",
+        "ReturnData/IRS990EZ/InvestmentIncomeAmt",
+    ))
+    cy_salaries = _int(_find(root,
+        "ReturnData/IRS990/CYSalariesCompEmpBnftPaidAmt",
+        "ReturnData/IRS990EZ/SalariesOtherCompEmpBnftAmt",
+    ))
+    cy_grants_paid = _int(_find(root,
+        "ReturnData/IRS990/CYGrantsAndSimilarPaidAmt",
+        "ReturnData/IRS990EZ/GrantsAndSimilarAmountsPaidAmt",
+    ))
+    cy_fundraising_exp = _int(_find(root,
+        "ReturnData/IRS990/CYTotalFundraisingExpenseAmt",
+    ))
+    assets_boy = _int(_find(root,
+        "ReturnData/IRS990/TotalAssetsBOYAmt",
+        "ReturnData/IRS990EZ/TotalAssetsBOYAmt",
+    ))
+    liab_boy = _int(_find(root,
+        "ReturnData/IRS990/TotalLiabilitiesBOYAmt",
+    ))
+    net_boy = _int(_find(root,
+        "ReturnData/IRS990/NetAssetsOrFundBalancesBOYAmt",
+        "ReturnData/IRS990EZ/NetAssetsOrFundBalancesBOYAmt",
+    ))
+    total_reportable_comp = _int(_find(root,
+        "ReturnData/IRS990/TotalReportableCompFromOrgAmt",
+    ))
+    indiv_gt_100k = _int(_find(root,
+        "ReturnData/IRS990/IndivRcvdGreaterThan100KCnt",
+    ))
+
+    flags = _collect_flags(irs) if irs is not None else {}
+    raw_data = _collect_raw_scalars(irs) if irs is not None else {}
+
+    ein = _text(_find(hdr, "Filer/EIN")) or ""
+    tax_year = _int(_find(hdr, "TaxYr"))
+
     return {
-        "ein": _text(_find(hdr, "Filer/EIN")),
+        "ein": ein,
         "return_type": _text(_find(hdr, "ReturnTypeCd")),
-        "tax_year": _int(_find(hdr, "TaxYr")),
+        "tax_year": tax_year,
         "tax_period_begin": _text(_find(hdr, "TaxPeriodBeginDt")),
         "tax_period_end": _text(_find(hdr, "TaxPeriodEndDt")),
         "org_name": _text(_find(filer_ctx, "BusinessName/BusinessNameLine1Txt")),
@@ -180,6 +591,32 @@ def extract(xml_bytes: bytes) -> dict | None:
         "total_liabilities_eoy": liab_eoy,
         "net_assets_eoy": net_eoy,
         "officers": _officers(root),
+        "persons": _extract_persons(root, ein, tax_year),
+        # extended
+        "gross_receipts": gross_receipts,
+        "formation_yr": formation_yr,
+        "legal_domicile_state": legal_domicile,
+        "principal_officer": principal_officer,
+        "phone": phone,
+        "voting_members_cnt": voting_members,
+        "independent_members_cnt": independent_members,
+        "total_employees": total_employees,
+        "total_volunteers": total_volunteers,
+        "total_gross_ubi": total_gross_ubi,
+        "py_total_revenue": py_total_revenue,
+        "cy_contributions": cy_contributions,
+        "cy_program_service_revenue": cy_program_svc_rev,
+        "cy_investment_income": cy_investment_income,
+        "cy_salaries": cy_salaries,
+        "cy_grants_paid": cy_grants_paid,
+        "cy_fundraising_expense": cy_fundraising_exp,
+        "total_assets_boy": assets_boy,
+        "total_liabilities_boy": liab_boy,
+        "net_assets_boy": net_boy,
+        "total_reportable_comp": total_reportable_comp,
+        "indiv_rcvd_greater_100k_cnt": indiv_gt_100k,
+        "flags": flags,
+        "raw_data": raw_data,
     }
 
 
@@ -261,28 +698,64 @@ INSERT INTO filing_details(
     mission, website,
     total_revenue, total_expenses,
     total_assets_eoy, total_liabilities_eoy, net_assets_eoy,
-    officers_json
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    officers_json,
+    gross_receipts, formation_yr, legal_domicile_state,
+    principal_officer, phone,
+    voting_members_cnt, independent_members_cnt,
+    total_employees, total_volunteers, total_gross_ubi,
+    py_total_revenue, cy_contributions, cy_program_service_revenue,
+    cy_investment_income, cy_salaries, cy_grants_paid, cy_fundraising_expense,
+    total_assets_boy, total_liabilities_boy, net_assets_boy,
+    total_reportable_comp, indiv_rcvd_greater_100k_cnt,
+    flags_json, raw_data_json
+) VALUES (
+    ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,
+    ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
+)
 ON CONFLICT(object_id) DO UPDATE SET
-    ein                  = excluded.ein,
-    return_type          = excluded.return_type,
-    tax_year             = excluded.tax_year,
-    tax_period_begin     = excluded.tax_period_begin,
-    tax_period_end       = excluded.tax_period_end,
-    org_name             = excluded.org_name,
-    org_address          = excluded.org_address,
-    city                 = excluded.city,
-    state                = excluded.state,
-    zip                  = excluded.zip,
-    mission              = excluded.mission,
-    website              = excluded.website,
-    total_revenue        = excluded.total_revenue,
-    total_expenses       = excluded.total_expenses,
-    total_assets_eoy     = excluded.total_assets_eoy,
-    total_liabilities_eoy = excluded.total_liabilities_eoy,
-    net_assets_eoy       = excluded.net_assets_eoy,
-    officers_json        = excluded.officers_json,
-    parsed_at            = datetime('now')
+    ein                          = excluded.ein,
+    return_type                  = excluded.return_type,
+    tax_year                     = excluded.tax_year,
+    tax_period_begin             = excluded.tax_period_begin,
+    tax_period_end               = excluded.tax_period_end,
+    org_name                     = excluded.org_name,
+    org_address                  = excluded.org_address,
+    city                         = excluded.city,
+    state                        = excluded.state,
+    zip                          = excluded.zip,
+    mission                      = excluded.mission,
+    website                      = excluded.website,
+    total_revenue                = excluded.total_revenue,
+    total_expenses               = excluded.total_expenses,
+    total_assets_eoy             = excluded.total_assets_eoy,
+    total_liabilities_eoy        = excluded.total_liabilities_eoy,
+    net_assets_eoy               = excluded.net_assets_eoy,
+    officers_json                = excluded.officers_json,
+    gross_receipts               = excluded.gross_receipts,
+    formation_yr                 = excluded.formation_yr,
+    legal_domicile_state         = excluded.legal_domicile_state,
+    principal_officer            = excluded.principal_officer,
+    phone                        = excluded.phone,
+    voting_members_cnt           = excluded.voting_members_cnt,
+    independent_members_cnt      = excluded.independent_members_cnt,
+    total_employees              = excluded.total_employees,
+    total_volunteers             = excluded.total_volunteers,
+    total_gross_ubi              = excluded.total_gross_ubi,
+    py_total_revenue             = excluded.py_total_revenue,
+    cy_contributions             = excluded.cy_contributions,
+    cy_program_service_revenue   = excluded.cy_program_service_revenue,
+    cy_investment_income         = excluded.cy_investment_income,
+    cy_salaries                  = excluded.cy_salaries,
+    cy_grants_paid               = excluded.cy_grants_paid,
+    cy_fundraising_expense       = excluded.cy_fundraising_expense,
+    total_assets_boy             = excluded.total_assets_boy,
+    total_liabilities_boy        = excluded.total_liabilities_boy,
+    net_assets_boy               = excluded.net_assets_boy,
+    total_reportable_comp        = excluded.total_reportable_comp,
+    indiv_rcvd_greater_100k_cnt  = excluded.indiv_rcvd_greater_100k_cnt,
+    flags_json                   = excluded.flags_json,
+    raw_data_json                = excluded.raw_data_json,
+    parsed_at                    = datetime('now')
 """
 
 
@@ -307,6 +780,65 @@ def _row_from_extract(object_id: str, data: dict) -> tuple:
         data.get("total_liabilities_eoy"),
         data.get("net_assets_eoy"),
         json.dumps(data.get("officers") or []),
+        data.get("gross_receipts"),
+        data.get("formation_yr"),
+        data.get("legal_domicile_state"),
+        data.get("principal_officer"),
+        data.get("phone"),
+        data.get("voting_members_cnt"),
+        data.get("independent_members_cnt"),
+        data.get("total_employees"),
+        data.get("total_volunteers"),
+        data.get("total_gross_ubi"),
+        data.get("py_total_revenue"),
+        data.get("cy_contributions"),
+        data.get("cy_program_service_revenue"),
+        data.get("cy_investment_income"),
+        data.get("cy_salaries"),
+        data.get("cy_grants_paid"),
+        data.get("cy_fundraising_expense"),
+        data.get("total_assets_boy"),
+        data.get("total_liabilities_boy"),
+        data.get("net_assets_boy"),
+        data.get("total_reportable_comp"),
+        data.get("indiv_rcvd_greater_100k_cnt"),
+        json.dumps(data.get("flags") or {}),
+        json.dumps(data.get("raw_data") or {}),
+    )
+
+
+_PERSONS_INSERT_SQL = """
+INSERT OR IGNORE INTO filing_persons(
+    object_id, ein, tax_year, person_role,
+    name, name_norm, title,
+    reportable_comp, other_comp, related_org_comp,
+    hours_per_week, hours_related,
+    is_officer, is_director, is_key_employee, is_hce, is_former,
+    services_desc
+) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+"""
+
+
+def _person_row(object_id: str, p: dict) -> tuple:
+    return (
+        object_id,
+        p.get("ein") or "",
+        p.get("tax_year"),
+        p.get("person_role") or "unknown",
+        p.get("name"),
+        p.get("name_norm"),
+        p.get("title"),
+        p.get("reportable_comp"),
+        p.get("other_comp"),
+        p.get("related_org_comp"),
+        p.get("hours_per_week"),
+        p.get("hours_related"),
+        p.get("is_officer"),
+        p.get("is_director"),
+        p.get("is_key_employee"),
+        p.get("is_hce"),
+        p.get("is_former"),
+        p.get("services_desc"),
     )
 
 
@@ -352,7 +884,7 @@ def run_parse(
                 continue
             try:
                 rows: list[tuple] = []
-                zip_parsed = 0
+                person_rows: list[tuple] = []
                 zip_failed = 0
                 for i, (object_id, xml_bytes) in enumerate(iter_xml_in_zip(zp)):
                     if limit_per_zip and i >= limit_per_zip:
@@ -362,16 +894,20 @@ def run_parse(
                         zip_failed += 1
                         continue
                     rows.append(_row_from_extract(object_id, data))
+                    for p in data.get("persons") or []:
+                        person_rows.append(_person_row(object_id, p))
 
                 if rows:
                     conn.executemany(_DETAILS_INSERT_SQL, rows)
+                if person_rows:
+                    conn.executemany(_PERSONS_INSERT_SQL, person_rows)
                 conn.commit()
                 parsed_count += len(rows)
                 failed += zip_failed
                 zips_done += 1
                 log.info(
-                    "parsed %s: +%d rows (total=%d failed=%d)",
-                    b["batch_id"], len(rows), parsed_count, failed,
+                    "parsed %s: +%d rows +%d persons (total=%d failed=%d)",
+                    b["batch_id"], len(rows), len(person_rows), parsed_count, failed,
                 )
             except Exception as e:
                 # One bad batch shouldn't kill a 5M-row run. Log + move on.

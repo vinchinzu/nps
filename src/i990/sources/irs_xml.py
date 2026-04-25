@@ -100,7 +100,7 @@ BATCH_MANIFEST: dict[int, list[str]] = {
         [f"2025_TEOS_XML_{m:02d}A" for m in range(1, 13)]
         + ["2025_TEOS_XML_05B", "2025_TEOS_XML_11B", "2025_TEOS_XML_11C", "2025_TEOS_XML_11D"]
     ),
-    2026: ["2026_TEOS_XML_01A", "2026_TEOS_XML_02A"],
+    2026: ["2026_TEOS_XML_01A", "2026_TEOS_XML_02A", "2026_TEOS_XML_03A"],
 }
 
 
@@ -232,9 +232,10 @@ def ingest_index(conn: sqlite3.Connection, year: int, csv_path: Path) -> tuple[i
                 flush()
     flush()
 
-    # Register batches for this year. Prefer the CSV's own XML_BATCH_ID
-    # column when present; otherwise fall back to the hardcoded manifest.
-    bids_to_register = batch_ids_seen or set(BATCH_MANIFEST.get(year, []))
+    # Register batches for this year. Use the union of CSV-discovered
+    # XML_BATCH_ID values and page-manifest ZIPs; IRS sometimes lists an
+    # extra ZIP before it appears in the per-year index.
+    bids_to_register = batch_ids_seen | set(BATCH_MANIFEST.get(year, []))
     for bid in sorted(bids_to_register):
         conn.execute(
             """

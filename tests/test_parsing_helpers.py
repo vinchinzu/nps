@@ -6,7 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from i990.parse.xml_header import _oid_from_name, extract
+from i990.parse.xml_header import _norm_name, _oid_from_name, extract
 from i990.sources.irs_xml import normalize_batch_id, _parse_sub_year
 
 
@@ -23,6 +23,11 @@ class ParsingHelpersTest(unittest.TestCase):
     def test_oid_from_name_strips_public_suffix(self) -> None:
         self.assertEqual(_oid_from_name("202410229349201231_public.xml"), "202410229349201231")
         self.assertEqual(_oid_from_name("abc.xml"), "abc")
+
+    def test_norm_name_strips_suffixes_without_leaving_roman_fragments(self) -> None:
+        self.assertEqual(_norm_name("Charles R. Bradford III"), "CHARLES R BRADFORD")
+        self.assertEqual(_norm_name("John A Staley IV"), "JOHN A STALEY")
+        self.assertEqual(_norm_name("Jane Doe, Jr."), "JANE DOE")
 
     def test_extract_reads_common_header_fields(self) -> None:
         xml = b"""<?xml version="1.0" encoding="UTF-8"?>
@@ -75,6 +80,8 @@ class ParsingHelpersTest(unittest.TestCase):
         self.assertEqual(data["city"], "Austin")
         self.assertEqual(data["total_revenue"], 123456)
         self.assertEqual(len(data["officers"]), 1)
+        self.assertEqual(len(data["persons"]), 1)
+        self.assertEqual(data["persons"][0]["name_norm"], "JANE DOE")
 
 
 if __name__ == "__main__":

@@ -101,12 +101,67 @@ CREATE TABLE IF NOT EXISTS filing_details (
     net_assets_eoy  INTEGER,
     officers_json   TEXT,                        -- top-paid officers list
     ntee_cd         TEXT,
+    -- Extended fields (added in migration v2)
+    gross_receipts          INTEGER,
+    formation_yr            INTEGER,
+    legal_domicile_state    TEXT,
+    principal_officer       TEXT,
+    phone                   TEXT,
+    voting_members_cnt      INTEGER,
+    independent_members_cnt INTEGER,
+    total_employees         INTEGER,
+    total_volunteers        INTEGER,
+    total_gross_ubi         INTEGER,
+    py_total_revenue        INTEGER,
+    cy_contributions        INTEGER,
+    cy_program_service_revenue INTEGER,
+    cy_investment_income    INTEGER,
+    cy_salaries             INTEGER,
+    cy_grants_paid          INTEGER,
+    cy_fundraising_expense  INTEGER,
+    total_assets_boy        INTEGER,
+    total_liabilities_boy   INTEGER,
+    net_assets_boy          INTEGER,
+    total_reportable_comp   INTEGER,
+    indiv_rcvd_greater_100k_cnt INTEGER,
+    flags_json              TEXT,                -- self-reported boolean indicators (Parts IV/V/VI)
+    raw_data_json           TEXT,                -- all scalar fields from IRS990/EZ/PF section
     parsed_at       TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_details_ein       ON filing_details(ein);
 CREATE INDEX IF NOT EXISTS idx_details_tax_year  ON filing_details(tax_year);
 -- Composite for YoY self-joins (explosive_revenue_growth etc).
 CREATE INDEX IF NOT EXISTS idx_details_ein_year  ON filing_details(ein, tax_year);
+
+-- Normalized person rows for officer/board/contractor network analysis.
+-- One row per (filing, person, role). Populated by parse-xml step.
+-- Join on name_norm across EINs to build cross-org networks.
+CREATE TABLE IF NOT EXISTS filing_persons (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    object_id       TEXT NOT NULL,
+    ein             TEXT NOT NULL,
+    tax_year        INTEGER,
+    person_role     TEXT NOT NULL,   -- officer_director | contractor | preparer | signing_officer
+    name            TEXT,
+    name_norm       TEXT,            -- UPPER(TRIM(name)), spaces collapsed for network joins
+    title           TEXT,
+    reportable_comp INTEGER,
+    other_comp      INTEGER,
+    related_org_comp INTEGER,
+    hours_per_week  REAL,
+    hours_related   REAL,
+    is_officer      INTEGER,         -- 0/1
+    is_director     INTEGER,         -- 0/1
+    is_key_employee INTEGER,         -- 0/1
+    is_hce          INTEGER,         -- 0/1 highly compensated employee
+    is_former       INTEGER,         -- 0/1
+    services_desc   TEXT             -- contractors only
+);
+CREATE INDEX IF NOT EXISTS idx_persons_ein       ON filing_persons(ein);
+CREATE INDEX IF NOT EXISTS idx_persons_name_norm ON filing_persons(name_norm);
+CREATE INDEX IF NOT EXISTS idx_persons_year      ON filing_persons(tax_year);
+-- key index for cross-EIN person lookups (network charts)
+CREATE INDEX IF NOT EXISTS idx_persons_name_ein  ON filing_persons(name_norm, ein);
 
 -- Tracks bulk-download batches. One row per ZIP.
 CREATE TABLE IF NOT EXISTS xml_batches (
@@ -182,11 +237,84 @@ CREATE INDEX IF NOT EXISTS idx_scores_total ON risk_scores(total_score DESC);
 """
 
 
+_MIGRATIONS = [
+    # v3: persons/network table, created via SCHEMA on new DBs and applied here on existing ones
+    """CREATE TABLE IF NOT EXISTS filing_persons (
+        id              INTEGER PRIMARY KEY AUTOINCREMENT,
+        object_id       TEXT NOT NULL,
+        ein             TEXT NOT NULL,
+        tax_year        INTEGER,
+        person_role     TEXT NOT NULL,
+        name            TEXT,
+        name_norm       TEXT,
+        title           TEXT,
+        reportable_comp INTEGER,
+        other_comp      INTEGER,
+        related_org_comp INTEGER,
+        hours_per_week  REAL,
+        hours_related   REAL,
+        is_officer      INTEGER,
+        is_director     INTEGER,
+        is_key_employee INTEGER,
+        is_hce          INTEGER,
+        is_former       INTEGER,
+        services_desc   TEXT
+    )""",
+    "CREATE INDEX IF NOT EXISTS idx_persons_ein       ON filing_persons(ein)",
+    "CREATE INDEX IF NOT EXISTS idx_persons_name_norm ON filing_persons(name_norm)",
+    "CREATE INDEX IF NOT EXISTS idx_persons_year      ON filing_persons(tax_year)",
+    "CREATE INDEX IF NOT EXISTS idx_persons_name_ein  ON filing_persons(name_norm, ein)",
+    """CREATE UNIQUE INDEX IF NOT EXISTS idx_persons_unique_row
+        ON filing_persons(
+            object_id,
+            person_role,
+            COALESCE(name_norm, ''),
+            COALESCE(title, ''),
+            COALESCE(services_desc, '')
+        )""",
+    # v2: extended filing_details columns
+    "ALTER TABLE filing_details ADD COLUMN gross_receipts INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN formation_yr INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN legal_domicile_state TEXT",
+    "ALTER TABLE filing_details ADD COLUMN principal_officer TEXT",
+    "ALTER TABLE filing_details ADD COLUMN phone TEXT",
+    "ALTER TABLE filing_details ADD COLUMN voting_members_cnt INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN independent_members_cnt INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN total_employees INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN total_volunteers INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN total_gross_ubi INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN py_total_revenue INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN cy_contributions INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN cy_program_service_revenue INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN cy_investment_income INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN cy_salaries INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN cy_grants_paid INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN cy_fundraising_expense INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN total_assets_boy INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN total_liabilities_boy INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN net_assets_boy INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN total_reportable_comp INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN indiv_rcvd_greater_100k_cnt INTEGER",
+    "ALTER TABLE filing_details ADD COLUMN flags_json TEXT",
+    "ALTER TABLE filing_details ADD COLUMN raw_data_json TEXT",
+]
+
+
+def _apply_migrations(conn: sqlite3.Connection) -> None:
+    for sql in _MIGRATIONS:
+        try:
+            conn.execute(sql)
+        except sqlite3.DatabaseError:
+            pass  # migration already applied, or generated rows need a rebuild
+    conn.commit()
+
+
 def connect(path: Path | None = None) -> sqlite3.Connection:
     p = Path(path) if path else DB_PATH
     conn = sqlite3.connect(p)
     conn.row_factory = sqlite3.Row
     conn.executescript(SCHEMA)
+    _apply_migrations(conn)
     return conn
 
 

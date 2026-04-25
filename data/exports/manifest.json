@@ -17,217 +17,251 @@
     "total_liabilities_eoy",
     "net_assets_eoy",
     "risk_total_score",
-    "risk_tier"
+    "risk_tier",
+    "org_address",
+    "city",
+    "zip",
+    "phone",
+    "website",
+    "mission",
+    "principal_officer",
+    "legal_domicile_state",
+    "formation_yr",
+    "gross_receipts",
+    "py_total_revenue",
+    "cy_contributions",
+    "cy_program_service_revenue",
+    "cy_investment_income",
+    "cy_salaries",
+    "cy_grants_paid",
+    "cy_fundraising_expense",
+    "total_assets_boy",
+    "total_liabilities_boy",
+    "net_assets_boy",
+    "total_gross_ubi",
+    "voting_members_cnt",
+    "independent_members_cnt",
+    "total_employees",
+    "total_volunteers",
+    "total_reportable_comp",
+    "indiv_rcvd_greater_100k_cnt",
+    "flags_json",
+    "risk_signals"
   ],
   "format": "csv.gz",
-  "generated_at": "2026-04-13T20:03:29.303140+00:00",
-  "profile": "lite",
+  "generated_at": "2026-04-24T22:42:56.429065+00:00",
+  "profile": "full",
   "rows_per_file": 200000,
   "years": {
     "2016": {
-      "bytes": 113454,
+      "bytes": 573450,
       "files": 1,
       "parts": [
         {
-          "bytes": 113454,
-          "path": "/home/v/work/i990/data/exports/filings_2016_part01.csv.gz",
+          "bytes": 573450,
+          "path": "/home/v/work/i990/data/exports/filings_2016_full_part01.csv.gz",
           "rows": 2495
         }
       ],
       "rows": 2495
     },
     "2017": {
-      "bytes": 5135235,
+      "bytes": 29445715,
       "files": 1,
       "parts": [
         {
-          "bytes": 5135235,
-          "path": "/home/v/work/i990/data/exports/filings_2017_part01.csv.gz",
+          "bytes": 29445715,
+          "path": "/home/v/work/i990/data/exports/filings_2017_full_part01.csv.gz",
           "rows": 113206
         }
       ],
       "rows": 113206
     },
     "2018": {
-      "bytes": 21173296,
+      "bytes": 110053529,
       "files": 3,
       "parts": [
         {
-          "bytes": 8807365,
-          "path": "/home/v/work/i990/data/exports/filings_2018_part01.csv.gz",
+          "bytes": 45112380,
+          "path": "/home/v/work/i990/data/exports/filings_2018_full_part01.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 8743898,
-          "path": "/home/v/work/i990/data/exports/filings_2018_part02.csv.gz",
+          "bytes": 45967071,
+          "path": "/home/v/work/i990/data/exports/filings_2018_full_part02.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 3622033,
-          "path": "/home/v/work/i990/data/exports/filings_2018_part03.csv.gz",
+          "bytes": 18974078,
+          "path": "/home/v/work/i990/data/exports/filings_2018_full_part03.csv.gz",
           "rows": 84439
         }
       ],
       "rows": 484439
     },
     "2019": {
-      "bytes": 22802142,
+      "bytes": 118312308,
       "files": 3,
       "parts": [
         {
-          "bytes": 8791214,
-          "path": "/home/v/work/i990/data/exports/filings_2019_part01.csv.gz",
+          "bytes": 44954172,
+          "path": "/home/v/work/i990/data/exports/filings_2019_full_part01.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 8740850,
-          "path": "/home/v/work/i990/data/exports/filings_2019_part02.csv.gz",
+          "bytes": 45904231,
+          "path": "/home/v/work/i990/data/exports/filings_2019_full_part02.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 5270078,
-          "path": "/home/v/work/i990/data/exports/filings_2019_part03.csv.gz",
+          "bytes": 27453905,
+          "path": "/home/v/work/i990/data/exports/filings_2019_full_part03.csv.gz",
           "rows": 123163
         }
       ],
       "rows": 523163
     },
     "2020": {
-      "bytes": 26327744,
+      "bytes": 133979977,
       "files": 4,
       "parts": [
         {
-          "bytes": 8572927,
-          "path": "/home/v/work/i990/data/exports/filings_2020_part01.csv.gz",
+          "bytes": 42753853,
+          "path": "/home/v/work/i990/data/exports/filings_2020_full_part01.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 8486933,
-          "path": "/home/v/work/i990/data/exports/filings_2020_part02.csv.gz",
+          "bytes": 43503679,
+          "path": "/home/v/work/i990/data/exports/filings_2020_full_part02.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 8393940,
-          "path": "/home/v/work/i990/data/exports/filings_2020_part03.csv.gz",
+          "bytes": 42986628,
+          "path": "/home/v/work/i990/data/exports/filings_2020_full_part03.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 873944,
-          "path": "/home/v/work/i990/data/exports/filings_2020_part04.csv.gz",
-          "rows": 20682
+          "bytes": 4735817,
+          "path": "/home/v/work/i990/data/exports/filings_2020_full_part04.csv.gz",
+          "rows": 21315
         }
       ],
-      "rows": 620682
+      "rows": 621315
     },
     "2021": {
-      "bytes": 19493341,
+      "bytes": 98617415,
       "files": 3,
       "parts": [
         {
-          "bytes": 8530951,
-          "path": "/home/v/work/i990/data/exports/filings_2021_part01.csv.gz",
+          "bytes": 41885454,
+          "path": "/home/v/work/i990/data/exports/filings_2021_full_part01.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 8502490,
-          "path": "/home/v/work/i990/data/exports/filings_2021_part02.csv.gz",
+          "bytes": 43040063,
+          "path": "/home/v/work/i990/data/exports/filings_2021_full_part02.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 2459900,
-          "path": "/home/v/work/i990/data/exports/filings_2021_part03.csv.gz",
-          "rows": 59330
+          "bytes": 13691898,
+          "path": "/home/v/work/i990/data/exports/filings_2021_full_part03.csv.gz",
+          "rows": 66119
         }
       ],
-      "rows": 459330
+      "rows": 466119
     },
     "2022": {
-      "bytes": 29030061,
+      "bytes": 151092668,
       "files": 4,
       "parts": [
         {
-          "bytes": 8662868,
-          "path": "/home/v/work/i990/data/exports/filings_2022_part01.csv.gz",
+          "bytes": 42808831,
+          "path": "/home/v/work/i990/data/exports/filings_2022_full_part01.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 8582600,
-          "path": "/home/v/work/i990/data/exports/filings_2022_part02.csv.gz",
+          "bytes": 43654881,
+          "path": "/home/v/work/i990/data/exports/filings_2022_full_part02.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 8503596,
-          "path": "/home/v/work/i990/data/exports/filings_2022_part03.csv.gz",
+          "bytes": 43526593,
+          "path": "/home/v/work/i990/data/exports/filings_2022_full_part03.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 3280997,
-          "path": "/home/v/work/i990/data/exports/filings_2022_part04.csv.gz",
-          "rows": 78887
+          "bytes": 21102363,
+          "path": "/home/v/work/i990/data/exports/filings_2022_full_part04.csv.gz",
+          "rows": 101331
         }
       ],
-      "rows": 678887
+      "rows": 701331
     },
     "2023": {
-      "bytes": 30067562,
+      "bytes": 139154434,
       "files": 4,
       "parts": [
         {
-          "bytes": 8900692,
-          "path": "/home/v/work/i990/data/exports/filings_2023_part01.csv.gz",
+          "bytes": 38674821,
+          "path": "/home/v/work/i990/data/exports/filings_2023_full_part01.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 8827064,
-          "path": "/home/v/work/i990/data/exports/filings_2023_part02.csv.gz",
+          "bytes": 39368858,
+          "path": "/home/v/work/i990/data/exports/filings_2023_full_part02.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 8744989,
-          "path": "/home/v/work/i990/data/exports/filings_2023_part03.csv.gz",
+          "bytes": 39787569,
+          "path": "/home/v/work/i990/data/exports/filings_2023_full_part03.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 3594817,
-          "path": "/home/v/work/i990/data/exports/filings_2023_part04.csv.gz",
-          "rows": 84669
+          "bytes": 21323186,
+          "path": "/home/v/work/i990/data/exports/filings_2023_full_part04.csv.gz",
+          "rows": 113188
         }
       ],
-      "rows": 684669
+      "rows": 713188
     },
     "2024": {
-      "bytes": 24031977,
-      "files": 3,
+      "bytes": 133928588,
+      "files": 4,
       "parts": [
         {
-          "bytes": 8840431,
-          "path": "/home/v/work/i990/data/exports/filings_2024_part01.csv.gz",
+          "bytes": 42556610,
+          "path": "/home/v/work/i990/data/exports/filings_2024_full_part01.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 8823478,
-          "path": "/home/v/work/i990/data/exports/filings_2024_part02.csv.gz",
+          "bytes": 44056446,
+          "path": "/home/v/work/i990/data/exports/filings_2024_full_part02.csv.gz",
           "rows": 200000
         },
         {
-          "bytes": 6368068,
-          "path": "/home/v/work/i990/data/exports/filings_2024_part03.csv.gz",
-          "rows": 148475
+          "bytes": 42989052,
+          "path": "/home/v/work/i990/data/exports/filings_2024_full_part03.csv.gz",
+          "rows": 200000
+        },
+        {
+          "bytes": 4326480,
+          "path": "/home/v/work/i990/data/exports/filings_2024_full_part04.csv.gz",
+          "rows": 21041
         }
       ],
-      "rows": 548475
+      "rows": 621041
     },
     "2025": {
-      "bytes": 511136,
+      "bytes": 7921093,
       "files": 1,
       "parts": [
         {
-          "bytes": 511136,
-          "path": "/home/v/work/i990/data/exports/filings_2025_part01.csv.gz",
-          "rows": 12245
+          "bytes": 7921093,
+          "path": "/home/v/work/i990/data/exports/filings_2025_full_part01.csv.gz",
+          "rows": 40775
         }
       ],
-      "rows": 12245
+      "rows": 40775
     }
   }
 }

@@ -173,6 +173,21 @@ def _cmd_export_year(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_export_persons(args: argparse.Namespace) -> int:
+    from . import export as export_mod
+
+    result = export_mod.export_persons(
+        outdir=Path(args.outdir) if args.outdir else EXPORT_DIR,
+        rows_per_file=args.rows_per_file,
+    )
+    print(
+        f"persons: rows={result['total_rows']:,} files={result['files']} "
+        f"bytes={result['total_bytes']:,}"
+    )
+    print(f"manifest: {result['manifest']}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="i990", description="IRS 990 non-profit database.")
     p.add_argument("-v", "--verbose", action="store_true")
@@ -214,6 +229,14 @@ def main(argv: list[str] | None = None) -> int:
     sp = sub.add_parser("risk-explain", help="Show every hit and evidence for one EIN.")
     sp.add_argument("ein")
     sp.set_defaults(func=_cmd_risk_explain)
+
+    sp = sub.add_parser(
+        "export-persons",
+        help="Write filing_persons to chunked csv.gz for network analysis.",
+    )
+    sp.add_argument("--outdir", help="Override output directory.")
+    sp.add_argument("--rows-per-file", type=int, default=200000)
+    sp.set_defaults(func=_cmd_export_persons)
 
     sp = sub.add_parser("status", help="Print DB status and recent runs.")
     sp.set_defaults(func=_cmd_status)

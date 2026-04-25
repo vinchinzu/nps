@@ -1,0 +1,1033 @@
+{
+  "columns": [
+    "object_id",
+    "ein",
+    "tax_year",
+    "person_role",
+    "name",
+    "name_norm",
+    "title",
+    "reportable_comp",
+    "other_comp",
+    "related_org_comp",
+    "hours_per_week",
+    "hours_related",
+    "is_officer",
+    "is_director",
+    "is_key_employee",
+    "is_hce",
+    "is_former",
+    "services_desc",
+    "org_name",
+    "state",
+    "ntee_cd",
+    "subsection",
+    "total_revenue"
+  ],
+  "format": "csv.gz",
+  "generated_at": "2026-04-24T23:12:28.360074+00:00",
+  "parts": [
+    {
+      "bytes": 2502726,
+      "path": "/home/v/work/i990/data/exports/persons_part01.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2561838,
+      "path": "/home/v/work/i990/data/exports/persons_part02.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2541388,
+      "path": "/home/v/work/i990/data/exports/persons_part03.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2446442,
+      "path": "/home/v/work/i990/data/exports/persons_part04.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2394120,
+      "path": "/home/v/work/i990/data/exports/persons_part05.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2443840,
+      "path": "/home/v/work/i990/data/exports/persons_part06.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2508893,
+      "path": "/home/v/work/i990/data/exports/persons_part07.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2533254,
+      "path": "/home/v/work/i990/data/exports/persons_part08.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2425949,
+      "path": "/home/v/work/i990/data/exports/persons_part09.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2410903,
+      "path": "/home/v/work/i990/data/exports/persons_part10.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2556217,
+      "path": "/home/v/work/i990/data/exports/persons_part11.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2490160,
+      "path": "/home/v/work/i990/data/exports/persons_part12.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2543418,
+      "path": "/home/v/work/i990/data/exports/persons_part13.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2433192,
+      "path": "/home/v/work/i990/data/exports/persons_part14.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2430180,
+      "path": "/home/v/work/i990/data/exports/persons_part15.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2508325,
+      "path": "/home/v/work/i990/data/exports/persons_part16.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2574355,
+      "path": "/home/v/work/i990/data/exports/persons_part17.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2497149,
+      "path": "/home/v/work/i990/data/exports/persons_part18.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2446527,
+      "path": "/home/v/work/i990/data/exports/persons_part19.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2472526,
+      "path": "/home/v/work/i990/data/exports/persons_part20.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2400220,
+      "path": "/home/v/work/i990/data/exports/persons_part21.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2493723,
+      "path": "/home/v/work/i990/data/exports/persons_part22.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2583784,
+      "path": "/home/v/work/i990/data/exports/persons_part23.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2563133,
+      "path": "/home/v/work/i990/data/exports/persons_part24.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2595530,
+      "path": "/home/v/work/i990/data/exports/persons_part25.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2571074,
+      "path": "/home/v/work/i990/data/exports/persons_part26.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2573305,
+      "path": "/home/v/work/i990/data/exports/persons_part27.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2565792,
+      "path": "/home/v/work/i990/data/exports/persons_part28.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2708617,
+      "path": "/home/v/work/i990/data/exports/persons_part29.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2526386,
+      "path": "/home/v/work/i990/data/exports/persons_part30.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2427586,
+      "path": "/home/v/work/i990/data/exports/persons_part31.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2478268,
+      "path": "/home/v/work/i990/data/exports/persons_part32.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2479981,
+      "path": "/home/v/work/i990/data/exports/persons_part33.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2536138,
+      "path": "/home/v/work/i990/data/exports/persons_part34.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2473477,
+      "path": "/home/v/work/i990/data/exports/persons_part35.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2386829,
+      "path": "/home/v/work/i990/data/exports/persons_part36.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2431672,
+      "path": "/home/v/work/i990/data/exports/persons_part37.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2475092,
+      "path": "/home/v/work/i990/data/exports/persons_part38.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2520294,
+      "path": "/home/v/work/i990/data/exports/persons_part39.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2550030,
+      "path": "/home/v/work/i990/data/exports/persons_part40.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2476370,
+      "path": "/home/v/work/i990/data/exports/persons_part41.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2463833,
+      "path": "/home/v/work/i990/data/exports/persons_part42.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2480428,
+      "path": "/home/v/work/i990/data/exports/persons_part43.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2460640,
+      "path": "/home/v/work/i990/data/exports/persons_part44.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2485206,
+      "path": "/home/v/work/i990/data/exports/persons_part45.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2451958,
+      "path": "/home/v/work/i990/data/exports/persons_part46.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2345890,
+      "path": "/home/v/work/i990/data/exports/persons_part47.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2450672,
+      "path": "/home/v/work/i990/data/exports/persons_part48.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2631399,
+      "path": "/home/v/work/i990/data/exports/persons_part49.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2648715,
+      "path": "/home/v/work/i990/data/exports/persons_part50.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2605671,
+      "path": "/home/v/work/i990/data/exports/persons_part51.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2636300,
+      "path": "/home/v/work/i990/data/exports/persons_part52.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2628361,
+      "path": "/home/v/work/i990/data/exports/persons_part53.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2627383,
+      "path": "/home/v/work/i990/data/exports/persons_part54.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2623540,
+      "path": "/home/v/work/i990/data/exports/persons_part55.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2619159,
+      "path": "/home/v/work/i990/data/exports/persons_part56.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2619072,
+      "path": "/home/v/work/i990/data/exports/persons_part57.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2650024,
+      "path": "/home/v/work/i990/data/exports/persons_part58.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2626814,
+      "path": "/home/v/work/i990/data/exports/persons_part59.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2663347,
+      "path": "/home/v/work/i990/data/exports/persons_part60.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2445685,
+      "path": "/home/v/work/i990/data/exports/persons_part61.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2487523,
+      "path": "/home/v/work/i990/data/exports/persons_part62.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2519633,
+      "path": "/home/v/work/i990/data/exports/persons_part63.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2536021,
+      "path": "/home/v/work/i990/data/exports/persons_part64.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2674559,
+      "path": "/home/v/work/i990/data/exports/persons_part65.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2652235,
+      "path": "/home/v/work/i990/data/exports/persons_part66.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2645195,
+      "path": "/home/v/work/i990/data/exports/persons_part67.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2403333,
+      "path": "/home/v/work/i990/data/exports/persons_part68.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2477501,
+      "path": "/home/v/work/i990/data/exports/persons_part69.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2452585,
+      "path": "/home/v/work/i990/data/exports/persons_part70.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2493883,
+      "path": "/home/v/work/i990/data/exports/persons_part71.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2643231,
+      "path": "/home/v/work/i990/data/exports/persons_part72.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2518230,
+      "path": "/home/v/work/i990/data/exports/persons_part73.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2488585,
+      "path": "/home/v/work/i990/data/exports/persons_part74.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2557829,
+      "path": "/home/v/work/i990/data/exports/persons_part75.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2587836,
+      "path": "/home/v/work/i990/data/exports/persons_part76.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2675283,
+      "path": "/home/v/work/i990/data/exports/persons_part77.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2406580,
+      "path": "/home/v/work/i990/data/exports/persons_part78.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2580790,
+      "path": "/home/v/work/i990/data/exports/persons_part79.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2428123,
+      "path": "/home/v/work/i990/data/exports/persons_part80.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2401322,
+      "path": "/home/v/work/i990/data/exports/persons_part81.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2458007,
+      "path": "/home/v/work/i990/data/exports/persons_part82.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2619246,
+      "path": "/home/v/work/i990/data/exports/persons_part83.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2466335,
+      "path": "/home/v/work/i990/data/exports/persons_part84.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2418942,
+      "path": "/home/v/work/i990/data/exports/persons_part85.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2511221,
+      "path": "/home/v/work/i990/data/exports/persons_part86.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2429684,
+      "path": "/home/v/work/i990/data/exports/persons_part87.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2468825,
+      "path": "/home/v/work/i990/data/exports/persons_part88.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2562451,
+      "path": "/home/v/work/i990/data/exports/persons_part89.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2384603,
+      "path": "/home/v/work/i990/data/exports/persons_part90.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2415723,
+      "path": "/home/v/work/i990/data/exports/persons_part91.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2433112,
+      "path": "/home/v/work/i990/data/exports/persons_part92.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2442832,
+      "path": "/home/v/work/i990/data/exports/persons_part93.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2507245,
+      "path": "/home/v/work/i990/data/exports/persons_part94.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2566517,
+      "path": "/home/v/work/i990/data/exports/persons_part95.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2646415,
+      "path": "/home/v/work/i990/data/exports/persons_part96.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2672373,
+      "path": "/home/v/work/i990/data/exports/persons_part97.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2653994,
+      "path": "/home/v/work/i990/data/exports/persons_part98.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2557471,
+      "path": "/home/v/work/i990/data/exports/persons_part99.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2670650,
+      "path": "/home/v/work/i990/data/exports/persons_part100.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2724915,
+      "path": "/home/v/work/i990/data/exports/persons_part101.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2687746,
+      "path": "/home/v/work/i990/data/exports/persons_part102.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2724528,
+      "path": "/home/v/work/i990/data/exports/persons_part103.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2717568,
+      "path": "/home/v/work/i990/data/exports/persons_part104.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2521274,
+      "path": "/home/v/work/i990/data/exports/persons_part105.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2597761,
+      "path": "/home/v/work/i990/data/exports/persons_part106.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2761699,
+      "path": "/home/v/work/i990/data/exports/persons_part107.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2772697,
+      "path": "/home/v/work/i990/data/exports/persons_part108.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2764256,
+      "path": "/home/v/work/i990/data/exports/persons_part109.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2770367,
+      "path": "/home/v/work/i990/data/exports/persons_part110.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2446070,
+      "path": "/home/v/work/i990/data/exports/persons_part111.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2468377,
+      "path": "/home/v/work/i990/data/exports/persons_part112.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2516023,
+      "path": "/home/v/work/i990/data/exports/persons_part113.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2501343,
+      "path": "/home/v/work/i990/data/exports/persons_part114.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2503359,
+      "path": "/home/v/work/i990/data/exports/persons_part115.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2487726,
+      "path": "/home/v/work/i990/data/exports/persons_part116.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2529098,
+      "path": "/home/v/work/i990/data/exports/persons_part117.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2623791,
+      "path": "/home/v/work/i990/data/exports/persons_part118.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2567957,
+      "path": "/home/v/work/i990/data/exports/persons_part119.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2452470,
+      "path": "/home/v/work/i990/data/exports/persons_part120.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2462234,
+      "path": "/home/v/work/i990/data/exports/persons_part121.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2507598,
+      "path": "/home/v/work/i990/data/exports/persons_part122.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2464645,
+      "path": "/home/v/work/i990/data/exports/persons_part123.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2422136,
+      "path": "/home/v/work/i990/data/exports/persons_part124.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2406085,
+      "path": "/home/v/work/i990/data/exports/persons_part125.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2508671,
+      "path": "/home/v/work/i990/data/exports/persons_part126.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2478381,
+      "path": "/home/v/work/i990/data/exports/persons_part127.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2445665,
+      "path": "/home/v/work/i990/data/exports/persons_part128.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2364153,
+      "path": "/home/v/work/i990/data/exports/persons_part129.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2439091,
+      "path": "/home/v/work/i990/data/exports/persons_part130.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2414165,
+      "path": "/home/v/work/i990/data/exports/persons_part131.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2527778,
+      "path": "/home/v/work/i990/data/exports/persons_part132.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2439163,
+      "path": "/home/v/work/i990/data/exports/persons_part133.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2450032,
+      "path": "/home/v/work/i990/data/exports/persons_part134.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2473270,
+      "path": "/home/v/work/i990/data/exports/persons_part135.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2544356,
+      "path": "/home/v/work/i990/data/exports/persons_part136.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2331924,
+      "path": "/home/v/work/i990/data/exports/persons_part137.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2608371,
+      "path": "/home/v/work/i990/data/exports/persons_part138.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2293258,
+      "path": "/home/v/work/i990/data/exports/persons_part139.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2412171,
+      "path": "/home/v/work/i990/data/exports/persons_part140.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2303365,
+      "path": "/home/v/work/i990/data/exports/persons_part141.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2325690,
+      "path": "/home/v/work/i990/data/exports/persons_part142.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2553197,
+      "path": "/home/v/work/i990/data/exports/persons_part143.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2705538,
+      "path": "/home/v/work/i990/data/exports/persons_part144.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2411838,
+      "path": "/home/v/work/i990/data/exports/persons_part145.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2417556,
+      "path": "/home/v/work/i990/data/exports/persons_part146.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2416341,
+      "path": "/home/v/work/i990/data/exports/persons_part147.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2485466,
+      "path": "/home/v/work/i990/data/exports/persons_part148.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2499097,
+      "path": "/home/v/work/i990/data/exports/persons_part149.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2488659,
+      "path": "/home/v/work/i990/data/exports/persons_part150.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2552928,
+      "path": "/home/v/work/i990/data/exports/persons_part151.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2582367,
+      "path": "/home/v/work/i990/data/exports/persons_part152.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2428462,
+      "path": "/home/v/work/i990/data/exports/persons_part153.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2508854,
+      "path": "/home/v/work/i990/data/exports/persons_part154.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2613941,
+      "path": "/home/v/work/i990/data/exports/persons_part155.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2615412,
+      "path": "/home/v/work/i990/data/exports/persons_part156.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2618142,
+      "path": "/home/v/work/i990/data/exports/persons_part157.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2642066,
+      "path": "/home/v/work/i990/data/exports/persons_part158.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2575028,
+      "path": "/home/v/work/i990/data/exports/persons_part159.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2686670,
+      "path": "/home/v/work/i990/data/exports/persons_part160.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2797335,
+      "path": "/home/v/work/i990/data/exports/persons_part161.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2807637,
+      "path": "/home/v/work/i990/data/exports/persons_part162.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2822061,
+      "path": "/home/v/work/i990/data/exports/persons_part163.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2632729,
+      "path": "/home/v/work/i990/data/exports/persons_part164.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2870414,
+      "path": "/home/v/work/i990/data/exports/persons_part165.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2877656,
+      "path": "/home/v/work/i990/data/exports/persons_part166.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2921424,
+      "path": "/home/v/work/i990/data/exports/persons_part167.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2738185,
+      "path": "/home/v/work/i990/data/exports/persons_part168.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2973800,
+      "path": "/home/v/work/i990/data/exports/persons_part169.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2986315,
+      "path": "/home/v/work/i990/data/exports/persons_part170.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2871039,
+      "path": "/home/v/work/i990/data/exports/persons_part171.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2581740,
+      "path": "/home/v/work/i990/data/exports/persons_part172.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2797952,
+      "path": "/home/v/work/i990/data/exports/persons_part173.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 3130488,
+      "path": "/home/v/work/i990/data/exports/persons_part174.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2895713,
+      "path": "/home/v/work/i990/data/exports/persons_part175.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 3036009,
+      "path": "/home/v/work/i990/data/exports/persons_part176.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 3143297,
+      "path": "/home/v/work/i990/data/exports/persons_part177.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2554750,
+      "path": "/home/v/work/i990/data/exports/persons_part178.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 3173060,
+      "path": "/home/v/work/i990/data/exports/persons_part179.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2889129,
+      "path": "/home/v/work/i990/data/exports/persons_part180.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 3246724,
+      "path": "/home/v/work/i990/data/exports/persons_part181.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 3552226,
+      "path": "/home/v/work/i990/data/exports/persons_part182.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2692726,
+      "path": "/home/v/work/i990/data/exports/persons_part183.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2571822,
+      "path": "/home/v/work/i990/data/exports/persons_part184.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2668084,
+      "path": "/home/v/work/i990/data/exports/persons_part185.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2717652,
+      "path": "/home/v/work/i990/data/exports/persons_part186.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2881684,
+      "path": "/home/v/work/i990/data/exports/persons_part187.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 3114047,
+      "path": "/home/v/work/i990/data/exports/persons_part188.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2533153,
+      "path": "/home/v/work/i990/data/exports/persons_part189.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 3333377,
+      "path": "/home/v/work/i990/data/exports/persons_part190.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2550982,
+      "path": "/home/v/work/i990/data/exports/persons_part191.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2604433,
+      "path": "/home/v/work/i990/data/exports/persons_part192.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2602602,
+      "path": "/home/v/work/i990/data/exports/persons_part193.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2645891,
+      "path": "/home/v/work/i990/data/exports/persons_part194.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2558042,
+      "path": "/home/v/work/i990/data/exports/persons_part195.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2524414,
+      "path": "/home/v/work/i990/data/exports/persons_part196.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2541555,
+      "path": "/home/v/work/i990/data/exports/persons_part197.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2575148,
+      "path": "/home/v/work/i990/data/exports/persons_part198.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2706452,
+      "path": "/home/v/work/i990/data/exports/persons_part199.csv.gz",
+      "rows": 200000
+    },
+    {
+      "bytes": 2755656,
+      "path": "/home/v/work/i990/data/exports/persons_part200.csv.gz",
+      "rows": 166852
+    }
+  ],
+  "rows_per_file": 200000,
+  "total_rows": 39966852
+}
