@@ -1,0 +1,135 @@
+{
+  "columns": [
+    "tax_year",
+    "object_id",
+    "ein",
+    "org_name",
+    "state",
+    "subsection",
+    "ntee_cd",
+    "bmf_region",
+    "return_type",
+    "filing_sub_year",
+    "xml_batch_id",
+    "total_revenue",
+    "total_expenses",
+    "total_assets_eoy",
+    "total_liabilities_eoy",
+    "net_assets_eoy",
+    "risk_total_score",
+    "risk_tier",
+    "org_address",
+    "city",
+    "zip",
+    "phone",
+    "website",
+    "mission",
+    "principal_officer",
+    "legal_domicile_state",
+    "formation_yr",
+    "gross_receipts",
+    "py_total_revenue",
+    "cy_contributions",
+    "cy_program_service_revenue",
+    "cy_investment_income",
+    "cy_salaries",
+    "cy_grants_paid",
+    "cy_fundraising_expense",
+    "total_assets_boy",
+    "total_liabilities_boy",
+    "net_assets_boy",
+    "total_gross_ubi",
+    "voting_members_cnt",
+    "independent_members_cnt",
+    "total_employees",
+    "total_volunteers",
+    "total_reportable_comp",
+    "indiv_rcvd_greater_100k_cnt",
+    "flags_json",
+    "risk_signals"
+  ],
+  "files": 4,
+  "filters": {
+    "max_tax_year": 2018,
+    "min_tax_year": 2011,
+    "source_years": null
+  },
+  "format": "csv.gz",
+  "generated_at": "2026-04-30T20:16:42.009620+00:00",
+  "max_part_bytes": 49000000,
+  "notes": [
+    "Kaggle's irs/irs-990 page is a BigQuery-backed dataset; the Kaggle file API did not expose downloadable CSV files.",
+    "These CSVs come from the IRS annual extract/NBER mirror of the same public Form 990 annual extract data.",
+    "object_id is synthetic; annual extracts do not include IRS XML object ids.",
+    "org identity columns are enriched from the local BMF organizations table where EINs match.",
+    "Unavailable XML-only fields are left empty."
+  ],
+  "parts": [
+    {
+      "bytes": 49008645,
+      "file": "annual_extract_990_2011_2018_full_part01.csv.gz",
+      "rows": 705000
+    },
+    {
+      "bytes": 49051714,
+      "file": "annual_extract_990_2011_2018_full_part02.csv.gz",
+      "rows": 693000
+    },
+    {
+      "bytes": 49026429,
+      "file": "annual_extract_990_2011_2018_full_part03.csv.gz",
+      "rows": 657000
+    },
+    {
+      "bytes": 1477130,
+      "file": "annual_extract_990_2011_2018_full_part04.csv.gz",
+      "rows": 16185
+    }
+  ],
+  "profile": "annual_extract_full_compatible",
+  "rows": 2071185,
+  "sources": [
+    {
+      "rows_read": 294019,
+      "rows_written": 270503,
+      "source_file": "f9902012.csv",
+      "source_year": 2012
+    },
+    {
+      "rows_read": 289603,
+      "rows_written": 287441,
+      "source_file": "f9902013.csv",
+      "source_year": 2013
+    },
+    {
+      "rows_read": 299405,
+      "rows_written": 297808,
+      "source_file": "f9902014.csv",
+      "source_year": 2014
+    },
+    {
+      "rows_read": 294782,
+      "rows_written": 294253,
+      "source_file": "f9902015.csv",
+      "source_year": 2015
+    },
+    {
+      "rows_read": 307483,
+      "rows_written": 307197,
+      "source_file": "f9902016.csv",
+      "source_year": 2016
+    },
+    {
+      "rows_read": 300910,
+      "rows_written": 300769,
+      "source_file": "f9902017.csv",
+      "source_year": 2017
+    },
+    {
+      "rows_read": 313339,
+      "rows_written": 313214,
+      "source_file": "18eoextract990.csv",
+      "source_year": 2018
+    }
+  ]
+}
