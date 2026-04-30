@@ -11,8 +11,10 @@ dist/
 data/raw/
 data/xml/
 data/logs/
+data/external/irs_soi_annual_extracts/
 data/i990.sqlite*
 data/*.lock
 *.part
+uv.lock
 .DS_Store
 reports/
